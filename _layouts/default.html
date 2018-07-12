@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+{% include head.html %}
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                {% include header.html %}
+                <!-- {% include banner.html %} -->
+                <section>
+                    <div class="posts">
+                        {% for post in site.posts %}
+                            <article>	
+                                <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
+                                <h3>{{ post.title }}</h3>
+                                <p>{{ post.summary }}</p>
+                                <ul class="actions">
+                                    <li><a href="{{ post.url }}" class="button">More</a></li>
+                                </ul>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        {% include sidebar.html %}
+
+    </div>
+
+    {% include footer.html %}
+
+</body>
+
+</html>

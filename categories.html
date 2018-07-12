@@ -1,0 +1,43 @@
+---
+layout: page
+title: Categories
+image: assets/images/pic11.jpg
+---
+
+<!-- 标签云 -->
+<ul class="actions vertical small">
+	{% for tag in site.categories %}
+	<li style="display: inline-block;padding-top: 0.5em">
+		<a href="#{{ tag[0] }}" class="button small" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+			{{ tag[0] }}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+
+<!-- Main Content -->
+{% for tag in site.categories %}
+	<div>
+		<h2><span class="fa fa-tag listing-seperator" id="{{ tag[0] }}"> {{ tag[0] }}</span></h2>
+		{% for post in tag[1] %}
+		<div class="categories"> 
+			<div>
+				<a href="{{ post.url | prepend: site.baseurl }}">
+					<h3>{{ post.title }}</h3>
+				</a>
+				<!-- <p>{{ post.date | date:"%Y-%m-%d" }}</p> -->
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<hr>
+{% endfor %}
+
+
+<style>
+
+.categories {
+	width: 49%;
+	display: inline-block;
+}
+</style>
