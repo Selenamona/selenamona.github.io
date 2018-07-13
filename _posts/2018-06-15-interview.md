@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      常见面试题整理 
-# summary: 为博客添加 Gitalk 评论插件
+title:      面试题整理 
+summary: 常见面试题整理，仅供学习参考，不定期更新...
 categories: 面试
 ---
 

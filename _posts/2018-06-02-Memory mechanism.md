@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      JS内存机制
-# summary: 为博客添加 Gitalk 评论插件
+summary: 内存空间 / 内存生命周期（分配|使用|回收） / 内存泄露 / 深浅拷贝 
 categories: Js
 ---
 
@@ -31,7 +31,7 @@ b = 30;
 ```
 基本数据类型执行数据复制时，系统会自动为新的变量分配一个新的值，所以a与b其实已经是完全独立的两个变量，只是值一样而已。
 
-![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/baseType.jpg)
+![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/baseType.jpg)
 
 #### 引用数据类型   
 
@@ -48,8 +48,8 @@ console.log(m.a);
 
 引用类型数据执行复制时，虽然也是两个完全独立的变量，但两个变量的地址是一样的，也就是指向堆中同一个对象，所以当改变其中一个，另一个也会随之改变。
 
-![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/o1.jpg)
-![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/o2.jpg)
+![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/o1.jpg)
+![图解](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/o2.jpg)
 
 #### 浅拷贝
   **浅拷贝**拷贝对象属性的引用，若某属性依然为对象，拷贝双方修改值会彼此影响。   
@@ -124,7 +124,7 @@ console.log(m.a);
       console.log(b);
       ```
 
-      ![demoJSON](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/JSON copy.jpg)
+      ![demoJSON](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/JSON copy.jpg)
 
   2. **递归**
 
@@ -261,7 +261,7 @@ JavaScript有自动垃圾收集机制，垃圾收集器会跟踪内存分配和�
   f();
   ```
 
-  ![demo1](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/1.jpg)
+  ![demo1](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/1.jpg)
 
 **2. 标记和扫描算法**
 
@@ -277,7 +277,7 @@ JavaScript有自动垃圾收集机制，垃圾收集器会跟踪内存分配和�
 
   > 解决周期问题：在上面的第一个例子（demo1）中，函数调用返回后，两个对象不再被全局对象中的某个变量引用。因此，垃圾收集器会认为它们不可访问。即使两个对象之间有引用，从根节点它们也不再可达。
 
-  ![demo2](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/2.jpg)
+  ![demo2](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/2.jpg)
 
 
 ### 内存泄露

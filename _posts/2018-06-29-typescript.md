@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      TYPESCRIPT
-# summary: 为博客添加 Gitalk 评论插件
+summary: TypeScript 由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。
 categories: Ts
 ---
 

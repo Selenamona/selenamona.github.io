@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      源码学习
-# summary: 为博客添加 Gitalk 评论插件
+title:      Vue源码学习
+summary: 根据源码 Vue.js v2.0.2，对常见数据项props、data、computed、methods、watch的工作原理进行解析。
 categories: Vue
 ---
 
 ### 项目结构
 
 👉[Github-Vue](https://github.com/vuejs/vue)
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/img/posts/vue-original.jpg" width="700" title="源码结构"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/vue-original.jpg" width="700" title="源码结构"/>
 
 
 1. 看到源码一个想到的是：`package.json`  
@@ -53,10 +53,6 @@ dep => 观察者和订阅者的桥梁，管理和保存观察者的地方；
 
 Watcher是一个观察者对象。依赖收集以后Watcher对象会被保存在Deps中，数据变动的时候会由于Deps通知Watcher实例，然后由Watcher实例回调cb进行实图的更新。  
   
-
-
-
-
 
 > **tips:**       
     - `Object.getOwnPropertyNames()`接收一个对象作为参数，返回这个对象所有自身属性的属性名（包括不可枚举属性）组成的数组。若要-获取对象自身所有可枚举的属性，可使用`Object.keys()`;两者皆不可获取原型上的属性。   

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      tips
-# summary: 为博客添加 Gitalk 评论插件
+summary: 常用快捷键 | 关于日期、数组、对象等各方面小知识点整理，以便查询参考
 categories: Guides
 ---
 

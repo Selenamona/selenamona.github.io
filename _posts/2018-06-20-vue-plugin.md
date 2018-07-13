@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      vue插件编写
-# summary: 为博客添加 Gitalk 评论插件
+summary: 四种常见vue插件编写方法，以及插件使用
 categories: [Plugin, Vue]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      异步执行顺序
-# summary: 为博客添加 Gitalk 评论插件
+summary: 宏任务与微任务
 categories: Js
 ---
 
