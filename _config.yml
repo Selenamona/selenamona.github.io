@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: MONA
-subtitle: blog
+subtitle: Do one thing at a time, and do well.
 SEOTitle: MONA | BLOG
 email: mdx0529@gmail.com
 street_address: 1234 Somewhere Road
@@ -37,14 +37,14 @@ github_username:  jekyll
 
 
 # Social settings
-homepage_url:  # M  
+homepage_url: https://selenamona.github.io/ # M  
 navicon_url:   # 标签
-home_url:  https://selenamona.github.io/  # 首页
+home_url:    # 首页
 star_url: 
-paperplane_url: https://www.linkedin.com/in/andrew-banchich-a4ba1195    # 导航
+paperplane_url: https://selenamona.github.io/js/2018/06/28/ws.html    # 导航
 github_url: https://github.com/Selenamona
-linkedin_url: https://www.linkedin.com/in/andrew-banchich-a4ba1195
-website_url: https://www.linkedin.com/in/andrew-banchich-a4ba1195 # 心
+linkedin_url: https://www.linkedin.com/
+website_url: https://juejin.im/ # 心
 
 
 # Sass building
