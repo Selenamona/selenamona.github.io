@@ -114,7 +114,13 @@
 
 							// Toggle.
 								$sidebar.toggleClass('inactive');
-
+								var hasCatatories = document.getElementsByClassName("inactive")[0];
+								var rightBar = document.getElementsByClassName("side-catalog")[0];
+								if(hasCatatories){
+									rightBar.style.display = "block";
+								}else{
+									rightBar.style.display = "none";
+								}
 						});
 
 				}

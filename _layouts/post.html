@@ -4,6 +4,9 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/assets/js/jquery.nav.js"></script>
+
 <html>
 
 {% include head.html %}
@@ -20,25 +23,156 @@
                 {% include header.html %}
 
                 <!-- Content -->
-                <section>
+                <section class="main-contant">
                 	<header class="main">
                 		<h1>{{ page.title }}</h1>
                 	</header>
                   <!-- {% if page.image %}
                 	<span class="image main"><img src="assets/images/{{ page.image }}.jpg" alt="" /></span>
                   {% endif %} -->
+                    <div class="container">
+                        <div class="contain">
+                            {{ content }}
+                        </div>
+                        <div class="empty"></div>
+                    </div>
+                    <div class="side-catalog"> 
+                        <ul class="catalog-body"></ul>
+                    </div>
+                <section>
+            </div>
+        </div>
 
-                {{ content }}
+        {% include sidebar.html %}
 
-              </div>
-          </div>
+    </div>
 
-          {% include sidebar.html %}
-
-      </div>
-
-      {% include footer.html %}
+    {% include footer.html %}
 
 </body>
 
 </html>
+
+<style>
+ .container {
+     display: flex;
+ }
+ .container .contain {
+     flex: 1;
+ }
+ .empty {
+     width: 200px;
+ }
+ 
+ .side-catalog {
+     position: fixed;
+     right: 0.1em;
+     top: 10em;
+     display: none;
+     overflow: auto;
+     height: 100%;
+     width:190px;
+ }
+.side-catalog .catalog-body {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  padding-left: 0px;
+  padding-right: 5px;
+  text-indent: 0;
+}
+.side-catalog .catalog-body li {
+  position: relative;
+  list-style: none;
+}
+.side-catalog .catalog-body li a {
+  padding-left: 10px;
+  max-width: 180px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-bottom: none;
+  color: #7b868a;
+}
+.side-catalog .catalog-body .h1_nav,
+.side-catalog .catalog-body .h2_nav,
+.side-catalog .catalog-body .h3_nav {
+  margin-left: 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+.side-catalog .catalog-body .h4_nav,
+.side-catalog .catalog-body .h5_nav,
+.side-catalog .catalog-body .h6_nav {
+  margin-left: 10px;
+  font-size: 12px;
+}
+.side-catalog .catalog-body .active {
+  border-radius: 4px;
+  background-color: #F5F5F5;
+}
+.side-catalog .catalog-body .active a {
+  color: #f56a6a !important;
+}
+
+</style>
+
+<script type="text/javascript">
+    //  导航
+
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+
+    function generateCatalog (selector) {
+        var P = $('section.main-contant'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("{{ '/assets/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+
+</script>
