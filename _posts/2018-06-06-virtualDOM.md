@@ -3,6 +3,7 @@ layout:     post
 title:      Vritual DOM
 summary: 虚拟DOM在DOM的基础上建立了一个抽象层，对数据和状态所做的任何改动，都会被自动且高效的同步到虚拟DOM，最后再批量同步到DOM中，可以最大的减少页面的重绘。
 categories: Vue
+technique: true
 ---
 
 ### 虚拟DOM

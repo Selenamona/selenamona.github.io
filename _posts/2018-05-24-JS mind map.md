@@ -3,6 +3,7 @@ layout:     post
 title:      Javascript 的 8 张思维导图
 summary: 数据类型 / 变量 / 运算符 / 运算符优先级 / 数组 / 流程语句 / 字符串函数 / 函数基础 / 基础DOM操作 / 正则表达式
 categories: Js
+technique: true
 ---
 
 

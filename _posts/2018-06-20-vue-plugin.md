@@ -3,6 +3,7 @@ layout:     post
 title:      vue插件编写
 summary: 四种常见vue插件编写方法，以及插件使用
 categories: [Plugin, Vue]
+technique: true
 ---
 
 ### 插件分类

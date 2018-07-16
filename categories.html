@@ -16,6 +16,7 @@ title: Categories
 
 <!-- Main Content -->
 {% for tag in site.categories %}
+
 	<div>
 		<h2><span class="fa fa-tag listing-seperator" id="{{ tag[0] }}"> {{ tag[0] }}</span></h2>
 		{% for post in tag[1] %}

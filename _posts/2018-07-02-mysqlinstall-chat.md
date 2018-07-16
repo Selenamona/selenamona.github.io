@@ -3,6 +3,7 @@ layout:     post
 title:      MySQL Installation 
 summary: MySQL Installation Instructions for Windows (ZIP)
 categories: Java
+technique: true
 ---
 
 ### 下载安装

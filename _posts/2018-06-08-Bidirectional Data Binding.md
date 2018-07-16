@@ -3,6 +3,7 @@ layout:     post
 title:      响应式原理
 summary: vue 采用数据劫持结合发布者-订阅者模式，通过Object.defineProperty劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。 
 categories: Js
+technique: true
 ---
 
 ### 实现双向绑定的几种做法

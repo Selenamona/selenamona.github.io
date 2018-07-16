@@ -3,6 +3,7 @@ layout:     post
 title:      DEMO
 summary: demo 使用 vue / vuex / mysql / node
 categories: Vue
+technique: true
 ---
 
 

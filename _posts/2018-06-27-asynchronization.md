@@ -3,6 +3,7 @@ layout:     post
 title:      异步执行顺序
 summary: 宏任务与微任务
 categories: Js
+technique: true
 ---
 
 

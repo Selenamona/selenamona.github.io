@@ -3,6 +3,7 @@ layout:     post
 title:      JS内存机制
 summary: 内存空间 / 内存生命周期（分配|使用|回收） / 内存泄露 / 深浅拷贝 
 categories: Js
+technique: true
 ---
 
 

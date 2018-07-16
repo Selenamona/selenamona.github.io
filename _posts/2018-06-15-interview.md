@@ -3,6 +3,7 @@ layout:     post
 title:      面试题整理 
 summary: 常见面试题整理，仅供学习参考，不定期更新...
 categories: interview
+technique: true
 ---
 
 ### 原型
