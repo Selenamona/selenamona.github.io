@@ -39,6 +39,7 @@
                     <div class="side-catalog"> 
                         <ul class="catalog-body"></ul>
                     </div>
+                    <div class="goTop icon fa-chevron-circle-up fa-3x"></div>
                 <section>
             </div>
         </div>
@@ -54,6 +55,11 @@
 </html>
 
 <style>
+ .goTop {
+    position: fixed;
+    right: 0.1em;
+    bottom: 0.1em;
+ }
  .container {
      display: flex;
  }
@@ -122,6 +128,12 @@
 </style>
 
 <script type="text/javascript">
+    // 回到顶部
+    var oTop = document.getElementsByClassName("goTop")[0]; 
+    oTop.onclick = function(){
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    }
+
     //  导航
 
     function async(u, c) {
