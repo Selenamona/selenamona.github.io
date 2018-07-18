@@ -39,7 +39,8 @@
                     <div class="side-catalog"> 
                         <ul class="catalog-body"></ul>
                     </div>
-                    <div class="goTop icon fa-chevron-circle-up fa-3x"></div>
+                    <div class="goTop icon fa-chevron-circle-up fa-2x"></div>
+                    <!-- chevron-circle-up arrow-up-->
                 <section>
             </div>
         </div>
@@ -57,8 +58,9 @@
 <style>
  .goTop {
     position: fixed;
-    right: 0.1em;
+    right: 1em;
     bottom: 0.1em;
+    display: none;
  }
  .container {
      display: flex;
@@ -129,10 +131,27 @@
 
 <script type="text/javascript">
     // 回到顶部
-    var oTop = document.getElementsByClassName("goTop")[0]; 
-    oTop.onclick = function(){
+    var oTop = $(".goTop"); 
+    var oWrapTop = $(".container");
+    oTop.click(function(){
         document.documentElement.scrollTop = document.body.scrollTop = 0;
+    })
+    window.onscroll = function(){
+        var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if(oScrollTop > oWrapTop.offset().top){
+            oTop.css({
+                display:"block"
+            })
+            // oTop.style.display = "block";
+        }else{
+            oTop.css({
+                display:"none"
+            })
+            // oTop.style.display = "none";
+        }
     }
+
+
 
     //  导航
 
