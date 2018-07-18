@@ -9,7 +9,7 @@ technique: true
 ### 项目结构
 
 👉[Github-Vue](https://github.com/vuejs/vue)
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/vue-original.jpg" width="700" title="源码结构"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/vue-original.jpg" width="600" title="源码结构"/>
 
 
 1. 看到源码一个想到的是：`package.json`  
