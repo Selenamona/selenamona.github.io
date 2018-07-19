@@ -9,35 +9,35 @@ technique: true
 
 ### 数据类型
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/99.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/99.gif" width="800"/>
 
 ### 变量
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/11.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/11.gif" width="800"/>
 
 ### 运算符
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/22.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/22.gif" width="800"/>
 
 #### 运算符优先级
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/numcal.png" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/numcal.png" width="800"/>
 
 ### 数组
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/33.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/33.gif" width="800"/>
 
 ### 流程语句
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/44.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/44.gif" width="800"/>
 
 ### 字符串函数
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/55.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/55.gif" width="800"/>
 
 ### 函数基础
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/66.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/66.gif" width="800"/>
 
 ### 基础DOM操作
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/77.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/77.gif" width="800"/>
 
 ### 正则表达式
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/88.gif" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/88.gif" width="800"/>
 
 
 > 原文链接：[Javascript思维导图](https://segmentfault.com/a/1190000011151972#articleHeader8)

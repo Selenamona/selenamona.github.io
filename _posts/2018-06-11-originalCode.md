@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Vue源码学习
+title:      Vue 源码学习
 summary: 根据源码 Vue.js v2.0.2，对常见数据项props、data、computed、methods、watch的工作原理进行解析。
 categories: Vue
 technique: true
