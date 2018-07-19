@@ -147,4 +147,5 @@ windows ——> system32 ——> cmd.exe ——> 右击以管理员身份运行
 
 
 
-> 原文：[windows安装mysql教程2017最新](https://blog.csdn.net/u013283787/article/details/76599794)
+> 原文：[windows安装mysql教程2017最新](https://blog.csdn.net/u013283787/article/details/76599794)  
+> [MySQL参考手册中文版](https://juejin.im/entry/59bd3e2ef265da064c384c9a#Loading_Data_into_a_Table)
