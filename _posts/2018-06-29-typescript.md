@@ -6,11 +6,10 @@ categories: Ts
 technique: true
 ---
 
-[typescript官方文档](https://www.typescriptlang.org/)
-[typescript中文网](https://www.tslang.cn/)
 
-[从 JavaScript 到 TypeScript](http://muyunyun.cn/posts/66a54fc2/)
 
-[TypeScript 资源集](https://segmentfault.com/a/1190000010130073)
+## 参考链接 
+
+[typescript官方文档](https://www.typescriptlang.org/) | [typescript中文网](https://www.tslang.cn/) | [从 JavaScript 到 TypeScript](http://muyunyun.cn/posts/66a54fc2/)| [TypeScript 资源集](https://segmentfault.com/a/1190000010130073)
 
 
