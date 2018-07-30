@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      MySQL Installation 
-summary: MySQL Installation Instructions for Windows (ZIP)
+title:      MySQL Installation for Windows (ZIP)
+summary:  
 categories: Java
 technique: true
 ---

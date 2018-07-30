@@ -1,12 +1,12 @@
 ---
 layout:     post
 title:      Typescript
-summary: TypeScript 由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。
+summary: 
 categories: Ts
 technique: true
 ---
 
-
+TypeScript 由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。
 
 ## 参考链接 
 

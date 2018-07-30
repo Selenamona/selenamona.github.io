@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      异步执行-宏任务与微任务 
-summary: Event Loop 是 javascript 的执行机制
+summary: 
 categories: Js
 technique: true
 ---

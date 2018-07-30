@@ -1,10 +1,14 @@
 ---
 layout:     post
-title:      性能优化
-summary: 前端优化的策略有很多，主要包括网络加载，页面渲染，CSS优化，JS执行优化，缓存，图片，协议等。
+title:      性能优化 window.performance
+summary: 
 categories: Js
 technique: true
 ---
+
+
+前端优化的策略有很多，主要包括网络加载，页面渲染，CSS优化，JS执行优化，缓存，图片，协议等。
+
 
 ## window.performance
 

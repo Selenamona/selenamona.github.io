@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      tips
-summary: 常用快捷键 | 关于日期、数组、对象等各方面小知识点整理，以便查询参考
+title:      tips / 常用快捷键 
+summary:  
 categories: Guides
 technique: true
 ---

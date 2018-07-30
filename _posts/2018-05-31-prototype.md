@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      原型与继承
-summary: 构造函数 / 原型 / 原型链 / 继承 
+summary:  
 categories: Js
 technique: true
 ---

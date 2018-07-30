@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      DEMO
-summary: demo 使用 vue / vuex / mysql / node
+title:      DEMO 使用 vue / vuex / mysql / node
+summary:  
 categories: Vue
 technique: true
 ---

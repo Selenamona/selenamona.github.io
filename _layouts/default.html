@@ -26,7 +26,11 @@
                                 <article>	
                                     <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
                                     <h3>{{ post.title }}</h3>
-                                    <p>{{ post.summary }}</p>
+                                    {% if post.summary %}
+                                    <p>{{ post.summary | strip_html | truncate: 100 }}</p>
+                                    {% else %}
+                                    <p>{{ post.content | strip_html | truncate: 100 }}</p>
+                                    {% endif %}
                                     <ul class="actions">
                                         <li><a href="{{ post.url | absolute_url }}" class="button">More</a></li>
                                     </ul>
