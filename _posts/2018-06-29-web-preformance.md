@@ -33,7 +33,7 @@ function init() {
 
 先看下一个请求发出的整个过程中，各种环节的时间顺序：
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/timing.jpg" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/timing.jpg" width="800"/>
 
 ```javascript
 // 获取 performance 数据
@@ -199,15 +199,13 @@ function getPerformanceTiming() {
 } 
 ```
 
-> 转载自AlloyTeam ： [初探 performance - 监控网页与程序性能](http://www.alloyteam.com/2015/09/explore-performance/)
+> 转载自 AlloyTeam ： [初探 performance - 监控网页与程序性能](http://www.alloyteam.com/2015/09/explore-performance/)
 
 ## 参考链接
 
 [前端性能与异常上报](https://juejin.im/post/5b5dcfb46fb9a04f8f37afbb)
 
 [WEB性能（全）](https://github.com/laoqiren/web-performance)
-
-[前端工程师面试题(性能优化)](https://www.geekjc.com/post/5b1e1e86274bfd42d16a697d)
 
 [前端安全知识](https://juejin.im/post/59dc2b7a6fb9a0451869ae3a)
 
