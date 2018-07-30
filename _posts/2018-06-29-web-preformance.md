@@ -10,7 +10,7 @@ technique: true
 
 window.performance 主要包括有 memory、navigation、timing 以及 timeOrigin 及 onresourcetimingbufferfull 方法。
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/performance.jpg" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/performance.jpg" width="700"/>
 
 - navigation 对象提供了在指定的时间段里发生的操作相关信息，包括页面是加载还是刷新、发生了多少次重定向等等。
 - timing 对象包含延迟相关的性能信息。这是我们页面加载性能优化需求中主要上报的相关信息。
@@ -206,8 +206,6 @@ function getPerformanceTiming() {
 [前端性能与异常上报](https://juejin.im/post/5b5dcfb46fb9a04f8f37afbb)
 
 [WEB性能（全）](https://github.com/laoqiren/web-performance)
-
-[前端安全知识](https://juejin.im/post/59dc2b7a6fb9a0451869ae3a)
 
 [网站性能优化—CRP](https://segmentfault.com/a/1190000008550336)
 
