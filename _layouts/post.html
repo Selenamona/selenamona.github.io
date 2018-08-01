@@ -67,7 +67,7 @@
  }
  .container .contain {
      flex: 1;
-     font-family: Georgia, serif;
+     font-family:"Roboto Slab", serif;
      letter-spacing: 0.5px;
  }
  .empty {
@@ -134,6 +134,7 @@
 
 <script type="text/javascript">
 
+
     //为超链接加上target='_blank'属性
     $('#main section a[href^="http"]').each(function() {
         $(this).attr('target', '_blank');
@@ -156,11 +157,28 @@
             })
         }
     }
+    // 运行代码片段
+    /* 获得整个页面可被运行的代码片断*/
+    var code = $('.can_run');
 
+    /*为每个can_run的代码区域添加按钮并绑定事件*/
+    code.each(function() {
+        var button = $('<button class="runcode">运行</button>'), //按钮
+            p = $('<p style="text-align:right;"></p>'), //按钮加入到段落中
+            $this = $(this); //保存当前代码区域的引用
 
+        /*组织结构，并在can_run之后添加这个结构*/
+        p.append(button);
+        $this.after(p);
+
+        /*为当前代码片段对应的按钮绑定点击事件*/
+        button.on('click', function() {
+            var win = window.open('', '_blank', ''); //开启新窗口
+            win.document.write( $this.text() ); //向新窗口输出内容
+        });
+    });
 
     //  导航
-
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
