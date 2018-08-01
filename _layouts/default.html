@@ -21,7 +21,7 @@
                 <!-- {% include banner.html %} -->
                 <section>
                     <div class="posts">
-                        {% for post in site.posts %}
+                        {% for post in paginator.posts %}
                             {% if post.technique %}
                                 <article>	
                                     <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
@@ -41,43 +41,31 @@
                 </section>
 
                 <!-- 分页 -->
-                <!-- {% if paginator.total_pages > 1 %}
-                <div class="pagination">
+                {% if paginator.total_pages > 1 %}
+                <ul class="pagination">
                     {% if paginator.previous_page %}
-                        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+                        <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button icon fa-arrow-circle-left">Prev</a></li>
                     {% else %}
-                        <span>&laquo; Prev</span>
+                    <li><span class="button disabled icon fa-arrow-circle-left">&laquo; Prev</span></li>
                     {% endif %}
 
                     {% for page in (1..paginator.total_pages) %}
                         {% if page == paginator.page %}
-                        <em>{{ page }}</em>
+                        <li><em class="page active">{{ page }}</em></li>
                         {% elsif page == 1 %}
-                        <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                        <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="page">{{page}}</a></li>
                         {% else %}
-                        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                        <li><a href="{{ site.url}}/page{{page}} " class="page">{{page}}</a></li>
                         {% endif %}
                     {% endfor %}
 
                     {% if paginator.next_page %}
-                        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+                        <li><a class="button" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next <span class="icon fa-arrow-circle-right"></span></a></li>
                     {% else %}
-                        <span>Next &raquo;</span>
+                        <li><span class="button disabled">Next <span class="icon fa-arrow-circle-right"></span></span></li>
                     {% endif %}
-                </div>
-                {% endif %} -->
-
-                <!-- <ul class="pagination">
-                    <li><span class="button disabled">Prev</span></li>
-                    <li><a href="#" class="page active">1</a></li>
-                    <li><a href="#" class="page">2</a></li>
-                    <li><a href="#" class="page">3</a></li>
-                    <li><span>&hellip;</span></li>
-                    <li><a href="#" class="page">8</a></li>
-                    <li><a href="#" class="page">9</a></li>
-                    <li><a href="#" class="page">10</a></li>
-                    <li><a href="#" class="button">Next</a></li>
-                </ul> -->
+                </ul>
+                {% endif %}
             </div>
         </div>
 
@@ -90,5 +78,16 @@
 </body>
 
 </html>
+
+<style>
+    /* .pagination {
+        text-align: center;
+        
+    } */
+    .pagination .button {
+        box-shadow: none;
+    }
+</style>
+
 
  
