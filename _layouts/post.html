@@ -36,6 +36,22 @@
                         </div>
                         <div class="empty"></div>
                     </div>
+                    <!-- 上一篇 下一篇 -->
+                    <!-- <div class="post-previous-next">
+                          {% if page.previous.url %}
+                          <a href="{{page.previous.url | relative_url }}" class="icon fa-chevron-left">
+                            {{page.previous.title | strip_html | truncate: 30}}
+                          </a>
+                          {% endif %}
+                
+                          {% if page.next.url %}
+                          <a href="{{page.next.url | relative_url }}">
+                            {{page.next.title | strip_html | truncate: 30}}
+                            <span class="icon fa-chevron-right"></span>
+                          </a>
+                          {% endif %}
+                    </div> -->
+                    <!-- 目录 定位跳转 -->
                     <div class="side-catalog"> 
                         <ul class="catalog-body"></ul>
                     </div>
@@ -56,6 +72,10 @@
 </html>
 
 <style>
+ .post-previous-next {
+    display: flex;
+    justify-content: space-between;
+ }
  .goTop {
     position: fixed;
     right: 1em;

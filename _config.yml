@@ -46,6 +46,10 @@ github_url: https://github.com/Selenamona
 heart_url: https://selenamona.github.io/js/2018/06/28/ws.html  # 心
 
 
+
+# paginate: 10
+
+
 # Sass building
 sass:
     sass_dir: _sass

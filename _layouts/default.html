@@ -39,6 +39,45 @@
                         {% endfor %}
                     </div>
                 </section>
+
+                <!-- 分页 -->
+                <!-- {% if paginator.total_pages > 1 %}
+                <div class="pagination">
+                    {% if paginator.previous_page %}
+                        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+                    {% else %}
+                        <span>&laquo; Prev</span>
+                    {% endif %}
+
+                    {% for page in (1..paginator.total_pages) %}
+                        {% if page == paginator.page %}
+                        <em>{{ page }}</em>
+                        {% elsif page == 1 %}
+                        <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                        {% else %}
+                        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if paginator.next_page %}
+                        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+                    {% else %}
+                        <span>Next &raquo;</span>
+                    {% endif %}
+                </div>
+                {% endif %} -->
+
+                <!-- <ul class="pagination">
+                    <li><span class="button disabled">Prev</span></li>
+                    <li><a href="#" class="page active">1</a></li>
+                    <li><a href="#" class="page">2</a></li>
+                    <li><a href="#" class="page">3</a></li>
+                    <li><span>&hellip;</span></li>
+                    <li><a href="#" class="page">8</a></li>
+                    <li><a href="#" class="page">9</a></li>
+                    <li><a href="#" class="page">10</a></li>
+                    <li><a href="#" class="button">Next</a></li>
+                </ul> -->
             </div>
         </div>
 
