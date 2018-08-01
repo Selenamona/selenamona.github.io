@@ -22,7 +22,7 @@
                 <section>
                     <div class="posts">
                         {% for post in paginator.posts %}
-                            {% if post.technique %}
+                            <!-- {% if post.technique %} -->
                                 <article>	
                                     <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
                                     <h3>{{ post.title }}</h3>
@@ -35,7 +35,7 @@
                                         <li><a href="{{ post.url | absolute_url }}" class="button">More</a></li>
                                     </ul>
                                 </article>
-                            {% endif %}
+                            <!-- {% endif %} -->
                         {% endfor %}
                     </div>
                 </section>
