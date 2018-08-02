@@ -20,7 +20,7 @@
 			margin: 0 0 $gutter $gutter;
 			position: relative;
 			width: calc(#{(100% / 3)} - #{$gutter});
-
+			font-family: "Roboto Slab", serif;
 			&:before {
 				background: _palette(border);
 				content: '';
