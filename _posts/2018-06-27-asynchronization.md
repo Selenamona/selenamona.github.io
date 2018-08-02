@@ -17,7 +17,7 @@ technique: true
 **每次事件循环的时候，会先执行宏任务队列中的任务，然后再执行微任务队列中的任务。**  
 
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/tasks.png" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/asyn-tasks.png" width="600"/>
 
 - 宏任务：script（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.  
 - 微任务：process.nextTick, Promise, Object.observer, MutationObserver.

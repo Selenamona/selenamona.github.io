@@ -10,7 +10,7 @@ technique: true
 
 mysql[官网](https://dev.mysql.com/downloads/mysql/)下载最新版mysql， 根据系统型号选择对应的包下载，解压缩，如图：
 
-![07021](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07021.jpg)
+![07021](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07021.jpg)
  
 ### 配置环境变量
 
@@ -18,7 +18,7 @@ mysql[官网](https://dev.mysql.com/downloads/mysql/)下载最新版mysql， 根
 
 变量名可以根据喜好随便取，我这里叫做MONA_MYSQL，变量值是你刚刚下载的mysql文件夹所在的目录，我们指向其中的bin目录，然后一路确定返回
 
-![07022](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07022.jpg)
+![07022](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07022.jpg)
  
  -----------设置环境变量，选择path双击，新建添加路径，一路确定----------
 
@@ -110,15 +110,15 @@ windows ——> system32 ——> cmd.exe ——> 右击以管理员身份运行
 
 命令如下:  `mysqld -install`  如果出现以下提示，说明安装成功
 
-![07024](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07024.jpg)
+![07024](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07024.jpg)
   
 然后开始启动服务，命令: `net start mysql` 
 
-![07023](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07023.jpg)
+![07023](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07023.jpg)
   
 这时候报错了，提示无法启动，3534 ，我们通过 `mysqld --console` 命令来查看错误日志
 
-![07025](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07025.jpg)
+![07025](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07025.jpg)
    
 这里提示，mysql文件夹下没有\data这个文件或者路径，这时我们新建一个
 
@@ -129,7 +129,7 @@ windows ——> system32 ——> cmd.exe ——> 右击以管理员身份运行
 执行完上面命令后，MySQL会自建一个data文件夹，并且建好默认数据库，登录的用户名为root，密码为空
 这时我们再重新启动mysql，发现就能正常启动了
 
-![07026](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/07026.jpg)
+![07026](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/mysqlinstall-07026.jpg)
 
 至此，我们安装mysql就成功了
 

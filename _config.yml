@@ -47,7 +47,7 @@ heart_url: https://selenamona.github.io/js/2018/06/28/ws.html  # 心
 
 
 
-paginate: 10
+paginate: 12
 paginate_path: "page:num"
 
 # Sass building

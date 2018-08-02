@@ -16,7 +16,7 @@ patch( ) : 将差异应用到真实 DOM 树
 
 #### 浏览器引擎工作流程
 
-![webkit引擎的处理流程](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/virtual-dom.jpg  'webkit引擎的处理流程')
+![webkit引擎的处理流程](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/virtual-dom.jpg  'webkit引擎的处理流程')
 
 
 1. `创建DOM tree`：用HTML分析器，分析HTML元素，构建DOM树。
@@ -62,7 +62,7 @@ patch( ) : 将差异应用到真实 DOM 树
 
 虚拟DOM，其实就是用JavaScript对象来构建DOM树，如上ul组件模版，其树形结构如下：
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/ul.png" width="300"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/virtual-dom-ul.png" width="300"/>
 
 通过javascript构建：
 
@@ -106,9 +106,9 @@ function Element({tagName, props, children}){
 
 > 树形结构遍历：      
     1. 深度优先遍历(DFS - Depth First Search) ：利用栈遍历数据         
-        ![DFS](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/dfs.jpg)        
+        ![DFS](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/virtual-dom-dfs.jpg)        
     2. 广度优先遍历(BFS - Breadth First Search)  ：利用队列遍历数据                     
-        ![BFS](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/bfs.png)               
+        ![BFS](https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/virtual-dom-bfs.png)               
 
 
 因为我们得将子节点append到父节点中，所以采用DFS：
@@ -160,7 +160,7 @@ DOM更新，无外乎四种情况，如下：
 
 因为要将变化的节点更新到真实DOM中，所以需传入真实的DOM根节点，并且真实的DOM节点与虚拟的DOM节点，树形结构一致，故通过标记可以记录节点变化位置，如下：
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/update-dom.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/virtual-dom-update-dom.png" width="500"/>
 
 ```javascript
 function updateElement($root, newElem, oldElem, index = 0) {

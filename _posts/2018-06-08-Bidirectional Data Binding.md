@@ -24,7 +24,7 @@ technique: true
 
 这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 追踪依赖，在属性被访问和修改时通知变化。每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/data.png" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/bidirection-d-b-data.png" width="600"/>
 
 > 注意：
   1. Vue初始化实例时对属性执行getter/setter转化过程，so属性须在data中才能是响应的。
@@ -76,7 +76,7 @@ Vue 初始化渲染时，视图上绑定的数据就会实例化一个 Watcher�
 ### Vue-Github
 
 [VUE-github](https://github.com/vuejs/vue)
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/img/vue-original.jpg" width="600"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/bidirection-d-b-vue-original.jpg" width="600"/>
 
 *****************************************
 

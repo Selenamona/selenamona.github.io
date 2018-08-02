@@ -14,7 +14,7 @@ technique: true
 
 window.performance 主要包括有 memory、navigation、timing 以及 timeOrigin 及 onresourcetimingbufferfull 方法。
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/performance.jpg" width="700"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/web-performance.jpg" width="700"/>
 
 - navigation 对象提供了在指定的时间段里发生的操作相关信息，包括页面是加载还是刷新、发生了多少次重定向等等。
 - timing 对象包含延迟相关的性能信息。这是我们页面加载性能优化需求中主要上报的相关信息。
@@ -37,7 +37,7 @@ function init() {
 
 先看下一个请求发出的整个过程中，各种环节的时间顺序：
 
-<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/timing.jpg" width="800"/>
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/web-performance-timing.jpg" width="800"/>
 
 ```javascript
 // 获取 performance 数据
@@ -60,10 +60,12 @@ var performance = {
     },
  
     timing: {
-        // 在同一个浏览器上下文中，前一个网页（与当前页面不一定同域）unload 的时间戳，如果无前一个网页 unload ，则与 fetchStart 值相等
+        // 在同一个浏览器上下文中，前一个网页（与当前页面不一定同域）unload 的时间戳，
+        // 如果无前一个网页 unload ，则与 fetchStart 值相等
         navigationStart: 1441112691935,
  
-        // 前一个网页（与当前页面同域）unload 的时间戳，如果无前一个网页 unload 或者前一个网页与当前页面不同域，则值为 0
+        // 前一个网页（与当前页面同域）unload 的时间戳，
+        // 如果无前一个网页 unload 或者前一个网页与当前页面不同域，则值为 0
         unloadEventStart: 0,
  
         // 和 unloadEventStart 相对应，返回前一个网页 unload 事件绑定的回调函数执行完毕的时间戳
@@ -106,10 +108,12 @@ var performance = {
         // HTTP 响应全部接收完成的时间（获取到最后一个字节），包括从本地读取缓存
         responseEnd: 1441112692687,
  
-        // 开始解析渲染 DOM 树的时间，此时 Document.readyState 变为 loading，并将抛出 readystatechange 相关事件
+        // 开始解析渲染 DOM 树的时间，此时 Document.readyState 变为 loading，
+        // 并将抛出 readystatechange 相关事件
         domLoading: 1441112692690,
  
-        // 完成解析 DOM 树的时间，Document.readyState 变为 interactive，并将抛出 readystatechange 相关事件
+        // 完成解析 DOM 树的时间，Document.readyState 变为 interactive，
+        // 并将抛出 readystatechange 相关事件
         // 注意只是 DOM 树解析完成，这时候并没有开始加载网页内的资源
         domInteractive: 1441112693093,
  
@@ -120,7 +124,8 @@ var performance = {
         // DOM 解析完成后，网页内资源加载完成的时间（如 JS 脚本加载执行完毕）
         domContentLoadedEventEnd: 1441112693101,
  
-        // DOM 树解析完成，且资源也准备就绪的时间，Document.readyState 变为 complete，并将抛出 readystatechange 相关事件
+        // DOM 树解析完成，且资源也准备就绪的时间，Document.readyState 变为 complete，
+        // 并将抛出 readystatechange 相关事件
         domComplete: 1441112693214,
  
         // load 事件发送给文档，也即 load 回调函数开始执行的时间
@@ -180,10 +185,11 @@ function getPerformanceTiming() {
     times.redirect = t.redirectEnd - t.redirectStart;
     //【重要】DNS 查询时间
     //【原因】DNS 预加载做了么？页面内是不是使用了太多不同的域名导致域名查询的时间太长？
-    // 可使用 HTML5 Prefetch 预查询 DNS ，见：[HTML5 prefetch](http://segmentfault.com/a/1190000000633364)            
+    // 可使用 HTML5 Prefetch 预查询 DNS ，[HTML5 Prefetch 见下方链接]            
     times.lookupDomain = t.domainLookupEnd - t.domainLookupStart;
     //【重要】读取页面第一个字节的时间
-    //【原因】这可以理解为用户拿到你的资源占用的时间，加异地机房了么，加CDN 处理了么？加带宽了么？加 CPU 运算速度了么？
+    //【原因】这可以理解为用户拿到你的资源占用的时间，加异地机房了么，
+    // 加CDN 处理了么？加带宽了么？加 CPU 运算速度了么？
     // TTFB 即 Time To First Byte 的意思
     // 维基百科：https://en.wikipedia.org/wiki/Time_To_First_Byte
     times.ttfb = t.responseStart - t.navigationStart;
@@ -202,6 +208,8 @@ function getPerformanceTiming() {
     return times;
 } 
 ```
+
+> [HTML5 prefetch](http://segmentfault.com/a/1190000000633364) 
 
 > 转载自 AlloyTeam ： [初探 performance - 监控网页与程序性能](http://www.alloyteam.com/2015/09/explore-performance/)
 

@@ -67,7 +67,7 @@ const girl2 = new Girl('莉莉',18);
 * 每个实例对象都包含一个指向原型对象的内部指针。【通过实例对象获取原型对象：Object.getPrototypeOf(obj) / obj.__proto__】。        
 * 构造函数的prototype属性与它创建的实例对象的内部指针指向的是同一个对象，即 对象.__proto__ === 函数.prototype 。
 
-![原型](https://github.com/Selenamona/Selenamona.github.io/blob/master/img/prototype.png?raw=true)
+![原型](https://github.com/Selenamona/Selenamona.github.io/blob/master/assets/images/prototype.png?raw=true)
 
 
 ```javascript
