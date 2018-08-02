@@ -149,6 +149,16 @@
 .side-catalog .catalog-body .active a {
   color: #f56a6a !important;
 }
+.highlight code {
+    position: relative;
+}
+.copyBtn {  
+    position: absolute;
+    right: 1.5em;
+    border-bottom: none;
+    cursor: pointer;
+    color: #b0aaaa;
+}
 
 </style>
 
@@ -198,7 +208,7 @@
         });
     });
 
-    //  导航
+    //  导航 -----------
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
@@ -249,5 +259,21 @@
             padding: 80
         });
     });
+
+    // 导航结束-------------------
+
+    // 复制 代码片段 
+    var $copyBtn = $("<a class='copyBtn'>复制代码</a>")
+    $(".highlight code").prepend($copyBtn);
+    $copyBtn.on("click",(ev)=>{
+        let $aux = $("<input/>");
+        let txt = ev.target.parentElement.innerText.replace("复制代码","");
+        $aux.val(txt);
+        $('body').append($aux);
+        $aux.select();
+        let content = window.getSelection().toString();
+        document.execCommand("Cut",false,null);
+        $aux.remove();
+    })
 
 </script>

@@ -56,6 +56,7 @@
 
 	p {
 		margin: 0 0 _size(element-margin) 0;
+		line-height: 2;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -143,10 +144,11 @@
 	}
 
 	code {
-		background: _palette(border-bg);
+		// background: _palette(border-bg);
+		background: rgba(126, 204, 236, 0.25);
 		border-radius: _size(border-radius);
-		border: solid 1px _palette(border);
-		font-family: _font(family-fixed);
+		// border: solid 1px _palette(border);
+		// font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
