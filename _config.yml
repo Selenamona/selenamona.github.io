@@ -46,9 +46,13 @@ github_url: https://github.com/Selenamona
 heart_url: https://selenamona.github.io/js/2018/06/28/ws.html  # 心
 
 
-
+# pageination
 paginate: 12
 paginate_path: "page:num"
+
+
+# posts url
+permalink: pretty
 
 # Sass building
 sass:
