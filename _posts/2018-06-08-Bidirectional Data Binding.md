@@ -88,7 +88,7 @@ Vue 初始化渲染时，视图上绑定的数据就会实例化一个 Watcher�
 
 为了避免第一种情况，以下两种方式将达到像 vm.items[indexOfItem] = newValue 的效果， 同时也将触发状态更新：
 
-```JS
+```javascript
 // Vue.set
 Vue.set(example1.items, indexOfItem, newValue)
 // Array.prototype.splice`  
@@ -105,7 +105,7 @@ Vue 不允许在已经创建的实例上动态添加新的根级响应式属性(
 
 有时你想向已有对象上添加一些属性，例如使用 Object.assign() 或 _.extend() 方法来添加属性。但是，添加到对象上的新属性不会触发更新。在这种情况下可以创建一个新的对象，让它包含原对象的属性和新的属性：
 
-```JS
+```javascript
 代替 `Object.assign(this.someObject, { a: 1, b: 2 })`
 this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
 this.someObject = _.extend({ a: 1, b: 2 }, this.someObject)
