@@ -6,7 +6,7 @@ categories: Js
 technique: true
 ---
 
-
+面向对象（ Object-Oriented OO ）
 
 ### 创建对象  
 
