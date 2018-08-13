@@ -75,7 +75,8 @@ Vue 初始化渲染时，视图上绑定的数据就会实例化一个 Watcher�
 
 ### Vue-Github
 
-[VUE-github](https://github.com/vuejs/vue)
+[VUE-github](https://github.com/vuejs/vue)  
+
 <img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/original-code-vue-original.jpg" width="600"/>
 
 *****************************************
