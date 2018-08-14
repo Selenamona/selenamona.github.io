@@ -111,8 +111,6 @@ let someValue: any = "this is a string";  // as-syntax
 let strLength: number = (someValue as string).length;
 ```
 
-
-
 **Type annotations**
 
 ```ts

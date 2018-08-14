@@ -580,3 +580,7 @@ module.exports = {
 }
 ```
 
+
+## 参考链接
+[WebpackOptions](https://github.com/webpack/webpack/blob/master/schemas/WebpackOptions.json)
+
