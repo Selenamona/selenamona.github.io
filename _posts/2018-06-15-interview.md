@@ -177,7 +177,8 @@ function unique(a) {
   });
 }
 
-// 还是和方法三一样的问题，因为 Object 的 key 值都是 String 类型，所以对于 1 和 "1" 无法分别，可以稍微改进下，将类型也存入 key 中。
+// 还是和方法三一样的问题，因为 Object 的 key 值都是 String 类型，
+// 所以对于 1 和 "1" 无法分别，可以稍微改进下，将类型也存入 key 中。
 
 function unique(a) {
   var ret = [];
