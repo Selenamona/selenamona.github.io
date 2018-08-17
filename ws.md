@@ -17,7 +17,7 @@ title: Websites
 #### Web 
 
 [今日头条-技术博客](https://techblog.toutiao.com/) |[hellogithub](https://hellogithub.com/)   |[Boostlog](https://boostlog.io/)   |[掘金](https://juejin.im/timeline)|[博客园](https://www.cnblogs.com/)|[MDN](https://developer.mozilla.org/zh-CN/) |[CSDN](https://www.csdn.net/?ref=toolbar)     |[stackoverflow](https://stackoverflow.com/) 
-[segmentfault](https://segmentfault.com/) | [Div.IO](https://div.io/q#/welcome) | [脚本之家](https://www.jb51.net/)   | [codepip](https://codepip.com/)      | [blueidea](http://bbs.blueidea.com/forum.php)   | [前端网](https://www.qdfuns.com/portal.php)| [前端里](http://www.yyyweb.com/)     | [转转前端](http://zzfe.org/#/list) 
+[segmentfault](https://segmentfault.com/) | [Div.IO](https://div.io/q#/welcome) | [脚本之家](https://www.jb51.net/)   | [codepip](https://codepip.com/)      | [blueidea](http://bbs.blueidea.com/forum.php) | [前端网](https://www.qdfuns.com/portal.php)| [前端里](http://www.yyyweb.com/)     | [转转前端](http://zzfe.org/#/list) 
 [前端乱炖](http://html-js.com/card/29)     | [绿叶学习网](http://www.lvyestudy.com/)  | [二当家的](https://www.erdangjiade.com/)  | [极客标签](http://www.gbtags.com/gb/index.htm)  | [HTML5基地](http://html5.360.cn/)   | [开源中国](https://www.oschina.net/)  | [解放号](https://www.jfh.com/)  | [bestvist](http://www.bestvist.com/h)   
 
 #### Team
