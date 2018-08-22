@@ -40,6 +40,8 @@ x[3] = "world";  // OK, 'string' can be assigned to 'string | number'
 console.log(x[5].toString());  // OK, 'string' and 'number' both have 'toString'
 x[6] = true;  // Error, 'boolean' isn't 'string | number'
 
+// 数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。
+
 // Enum 枚举 便利：可以由枚举的值得到名字
 enum Color {Red, Green, Blue}
 let c: Color = Color[1];
@@ -386,7 +388,25 @@ let myStr: string = myArray[0];
 
 上面例子里，我们定义了 StringArray 接口，它具有索引签名。这个索引签名表示了当用 number 去索引 StringArray 时会得到 string 类型的返回值。
 
-## 参考链接 
+
+## | 类型别名
+
+```ts
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+```
+
+上例中，我们使用 type 创建类型别名。类型别名常用于联合类型。
+
+## | 参考链接 
 
 [typescript官方文档](https://www.typescriptlang.org/) | [typescript中文网](https://www.tslang.cn/) | [TypeScript 资源集](https://segmentfault.com/a/1190000010130073)
 [TypeScript Handbook（中文版）](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Type%20Inference.html) | [TypeScript 入门教程](https://ts.xcatliu.com/basics/type-inference.html)
