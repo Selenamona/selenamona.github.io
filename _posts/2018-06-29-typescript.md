@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Typescript
+title:      Typescript 基础类型 / 接口 
 summary: 
 categories: Ts
 technique: true
@@ -10,7 +10,7 @@ TypeScript 由微软开发的自由和开源的编程语言，它是JavaScript�
 
 编译 ts， 命令行执行: `tsc greeter.ts`
 
-## 基础类型 Basic Types 
+## | 基础类型 Basic Types 
 
 ```typescript
 // boolean
@@ -129,7 +129,35 @@ greeter 需要一个字符串类型参数，当传了数组，报错如下:
 error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
 ```
 
-## 接口 Interfaces 
+**类型推论**
+
+如果没有明确的指定类型，那么 TypeScript 会依照类型推论（Type Inference）的规则推断出一个类型。以下代码虽没指定类型，但会在编译时报错：
+
+```typescript
+let a = 'hello';
+a = 7;
+// index.ts(2,1): error TS2322: Type '7' is not assignable to type 'string'.
+```
+
+事实上，它等价于：
+
+```typescript
+let a: string = 'hello';
+a = 7;
+// index.ts(2,1): error TS2322: Type '7' is not assignable to type 'string'.
+```
+
+TypeScript 会在没有明确的指定类型的时候推测出一个类型，这就是类型推论。
+
+如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查：
+
+```typescript
+let a;
+a = 'hello';
+a = 7;
+```
+
+## | 接口 Interfaces 
 
 ```ts
 interface Person {
@@ -146,34 +174,145 @@ let user = { firstName: "Jane", lastName: "User" };
 document.body.innerHTML = greeter(user);
 ```
 
-**可选属性**
+接口一般首字母大写。    
+赋值时，变量的形状必须和接口的形状保持一致。
 
-带有可选属性的接口与普通的接口定义差不多，只是在可选属性名字定义的后面加一个?符号。  
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+let tom: Person = {
+    name: 'Tom',
+    age: 25
+};
+```
+
+上面例子中，定义了一个接口 Person，接着定义了一个变量 tom，它的类型是 Person。这样就约束了 tom 的形状必须和接口 Person 一致。
+
+定义的变量比接口少/多了一些属性是不允许的：
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+let tom: Person = {
+    name: 'Tom'
+};
+// index.ts(6,5): error TS2322: Type '{ name: string; }' is not assignable to type 'Person'.
+//   Property 'age' is missing in type '{ name: string; }'.
+```
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+let tom: Person = {
+    name: 'Tom',
+    age: 25,
+    gender: 'male'
+};
+// index.ts(9,5): error TS2322: Type '{ name: string; age: number; gender: string; }' 
+// is not assignable to type 'Person'.
+// Object literal may only specify known properties, 
+// and 'gender' does not exist in type 'Person'.
+```
+
+#### 可选属性 
+
+有时我们希望不要完全匹配一个形状，那么可以用可选属性。带有可选属性的接口与普通的接口定义差不多，只是在可选属性名字定义的后面加一个 ? 符号。  
 
 可选属性的好处之一是可以对可能存在的属性进行预定义，好处之二是可以捕获引用了不存在的属性时的错误。  
 
 ```ts
-// 可选属性
-interface SquareConfig {
-  color?: string;
-  width?: number;
+interface Person {
+    name: string;
+    age?: number;
 }
 
-function createSquare(config: SquareConfig): {color: string; area: number} {
-  let newSquare = {color: "white", area: 100};
-  if (config.color) {
-    newSquare.color = config.color;
-  }
-  if (config.width) {
-    newSquare.area = config.width * config.width;
-  }
-  return newSquare;
+let tom: Person = {
+    name: 'Tom'
+};
+interface Person {
+    name: string;
+    age?: number;
 }
 
-let mySquare = createSquare({color: "black"});
+let tom: Person = {
+    name: 'Tom',
+    age: 25
+};
 ```
 
-**只读属性**
+可选属性的含义是该属性可以不存在。 这时仍然不允许添加未定义的属性：
+
+```ts
+interface Person {
+    name: string;
+    age?: number;
+}
+
+let tom: Person = {
+    name: 'Tom',
+    age: 25,
+    gender: 'male'
+};
+
+// examples/playground/index.ts(9,5): 
+// error TS2322: Type '{ name: string; age: number; gender: string; }' 
+// is not assignable to type 'Person'.
+// Object literal may only specify known properties, and 'gender' does not exist in type 'Person
+```
+
+#### 任意属性 
+
+有时候我们希望一个接口允许有任意的属性，可以使用如下方式：
+
+```ts
+interface Person {
+    name: string;
+    age?: number;
+    [propName: string]: any;
+}
+let tom: Person = {
+    name: 'Tom',
+    gender: 'male'
+};
+```
+
+使用 [propName: string] 定义了任意属性取 string 类型的值。
+
+需要注意的是，一旦定义了任意属性，那么确定属性和可选属性都必须是它的子属性：
+
+```ts
+interface Person {
+    name: string;
+    age?: number;
+    [propName: string]: string;
+}
+
+let tom: Person = {
+    name: 'Tom',
+    age: 25,
+    gender: 'male'
+};
+// index.ts(3,5): error TS2411: 
+// Property 'age' of type 'number' is not assignable to string index type 'string'. 
+// index.ts(7,5): error TS2322: 
+// Type '{ [x: string]: string | number; name: string; age: number; gender: string; }'  
+// is not assignable to type 'Person'.
+//  Index signatures are incompatible. 
+// Type 'string | number' is not assignable to type 'string'. 
+// Type 'number' is not assignable to type 'string'. 
+```
+
+上例中，任意属性的值允许是 string，但是可选属性 age 的值却是 number，number 不是 string 的子属性，所以报错了。
+
+另外，在报错信息中可以看出，此时 { name: 'Tom', age: 25, gender: 'male' } 的类型被推断成了 { [x: string]: string \| number; name: string; age: number; gender: string; }，这是联合类型和接口的结合。
+
+#### 只读属性 
 
 属性名前用 readonly来指定只读属性
 
@@ -186,6 +325,31 @@ interface Point {
 let p1: Point = { x: 10, y: 20 };
 p1.x = 5; // error!
 ```
+
+注意，只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候： 
+
+```ts
+interface Person {
+    readonly id: number;
+    name: string;
+    age?: number;
+    [propName: string]: any;
+}
+
+let tom: Person = {
+    name: 'Tom',
+    gender: 'male'
+};
+
+tom.id = 89757;
+// index.ts(8,5): error TS2322: 
+// Type '{ name: string; gender: string; }' is not assignable to type 'Person'.
+// Property 'id' is missing in type '{ name: string; gender: string; }'.
+// index.ts(13,5): error TS2540: 
+// Cannot assign to 'id' because it is a constant or a read-only property.
+```
+
+例中，报错信息有两处，第一处是在对 tom 进行赋值的时候，没有给 id 赋值。 第二处是在给 tom.id 赋值的时候，由于它是只读属性，所以报错了。
 
 TypeScript 具有 ReadonlyArray<T> 类型，它与 Array<T> 相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改：
 
@@ -202,11 +366,12 @@ a = ro; // error!
 
 `a = ro as number[];`
 
-> readonly vs const：  
-> 最简单判断该用 readonly 还是 const 的方法是看要把它做为变量使用还是做为一个属性。  
-> 做为变量使用的话用 const，若做为属性则使用 readonly。  
+> readonly vs const：    
 
-**可索引的类型**
+`最简单判断该用 readonly 还是 const 的方法是看要把它做为变量使用还是做为一个属性。`  
+`做为变量使用的话用 const，若做为属性则使用 readonly。`  
+
+#### 可索引的类型 
 
 ```ts
 interface StringArray {
@@ -219,10 +384,11 @@ myArray = ["Bob", "Fred"];
 let myStr: string = myArray[0];
 ```
 
-上面例子里，我们定义了StringArray接口，它具有索引签名。 这个索引签名表示了当用 number去索引StringArray时会得到string类型的返回值。
+上面例子里，我们定义了 StringArray 接口，它具有索引签名。这个索引签名表示了当用 number 去索引 StringArray 时会得到 string 类型的返回值。
 
 ## 参考链接 
 
 [typescript官方文档](https://www.typescriptlang.org/) | [typescript中文网](https://www.tslang.cn/) | [TypeScript 资源集](https://segmentfault.com/a/1190000010130073)
+[TypeScript Handbook（中文版）](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Type%20Inference.html) | [TypeScript 入门教程](https://ts.xcatliu.com/basics/type-inference.html)
 
 
