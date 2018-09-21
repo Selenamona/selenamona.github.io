@@ -239,8 +239,9 @@ c: undefined,0,1,1
 
 [一不小心就做错的JS闭包面试题](https://www.jb51.net/article/75450.htm)
 
-
 [你有必要知道的25个JavaScript面试题](https://www.jb51.net/article/77140.htm)
+
+[2万5千字大厂面经](https://juejin.im/post/5ba34e54e51d450e5162789b)
 
 
 
