@@ -50,26 +50,7 @@ tail -f creditfrontol.log       //查看日志
 cat creditfrontol.log | grep '关键字' -C20     //检索        
 
 docker exec -it integratedqueryApplicationImpl /bin/bash	      
-
-### 关于日期 
-
-获取某年某月多少天：new Date(new Date(2017,12,1).getTime()-864e5).getDate();              
-转换日期格式：new Date().toLocaleDateString().replace(/\//g,"-");                
-日期字符串排序：new Date(a).getTime();                  
-
-
-### 关于数组对象
-
-触发数组对象，视图更新：             
-this.$set('数组变量'，index，newVal)；                 
-this.$set('eMsg['+index+']',false);           
-this.arr.splice(n,1,newVal); 
-Obiect.assign({},obj,{a:1})；   
-数组去重：1、obj添加attr；2、[...new Set([1,2,3,2,1,"1"])]             
-取数组中最大值：Math.max.apply(Math,arr)             
-取数组中最小值：Math.min.apply(Math,arr)            
-
-
+             
 ### 其他
 
 **启动Mysql ：**
@@ -86,11 +67,8 @@ var ev = window.event || arguments[0].target;
   	旧组件------beforeDestory--------destory           
   	新组件------mounted           
 
-**全局安装的包**    npm list --depth=0 -global           
-
-**判断对象是否为空：**            
-Object.keys(obj).length           
-
+**全局安装的包**    npm list --depth=0 -global     
+      
 **动态添加样式：**           
 :class = "{active:isActive}"           
 :class="[isActive?ActiveClass:'']"           
