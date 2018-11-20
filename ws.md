@@ -34,16 +34,10 @@ title: Websites
 
 [日期时间选择器 flatpickr](http://www.jq22.com/yanshi9859) | [better-scroll](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/)  | [BetterScroll 移动端滚动插件](https://juejin.im/post/59dc572c6fb9a0450f20e40e) | [gka 帧动画生成工具](http://www.alloyteam.com/2017/07/gka/)
 [vue-easytable](http://doc.huangsw.com/vue-easytable/app.html#/start) | [loading.io](https://loading.io/) | [hammerjs](http://hammerjs.github.io/) | [swiper](https://www.swiper.com.cn/api/start/2014/1218/140.html)
-
  
-#### images
-
-[unsplash](https://unsplash.com/) | 
 
 
-
-[VUE实例：使用 CSS Filter 处理图片](https://xrr2016.github.io/vue-img-filter/)
-
+## | 教程
 [learn-python3](https://github.com/jerry-git/learn-python3)
 
 
