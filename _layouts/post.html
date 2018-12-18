@@ -55,9 +55,9 @@
                     <div class="side-catalog"> 
                         <ul class="catalog-body"></ul>
                     </div>
-                    <div class="goTop">
+                    <a class="goTop">  
                         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'><line x1='12' y1='19' x2='12' y2='5'></line><polyline points='5 12 12 5 19 12'></polyline></svg>
-                    </div>
+                    </a>
                     <!-- <div class="goTop icon fa-chevron-circle-up fa-2x"></div> -->
                     <!-- chevron-circle-up arrow-up-->
                 <section>
@@ -96,12 +96,9 @@
     cursor: pointer;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
     transition: all .3s ease;
- }
- .goTop:visited {
-     color: #01579b;
- }
- .goTop:link {
-     color: #0277bd;
+ } 
+ a.goTop:hover {
+    background: #0277bd;
  }
  .goTop img {
      width: 10px;
@@ -197,14 +194,14 @@
     // 回到顶部
     var oTop = $(".goTop"); 
     var oWrapTop = $(".container");
-    oTop.click(function(){
-        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    oTop.click(function(){ 
+        document.documentElement.scrollTop = document.body.scrollTop = 0; 
     })
     window.onscroll = function(){
         var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         if(oScrollTop > oWrapTop.offset().top){
             oTop.css({
-                display:"block"
+                display:"flex"
             })
         }else{
             oTop.css({
