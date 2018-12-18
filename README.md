@@ -1,10 +1,6 @@
 # [Selenamona](https://selenamona.github.io/)
 
 
-
-
-
-
 #########################################
 
 gem install jekyll
