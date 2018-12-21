@@ -3,24 +3,25 @@ layout: page
 title: Categories
 ---
 
-<!-- 标签云 -->
-<ul class="actions vertical small">
-	{% for tag in site.categories %}
-	<li style="display: inline-block;padding-top: 0.5em">
-		<a href="#{{ tag[0] }}" class="button small" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-			{{ tag[0] }}
-		</a>
-	</li>
-	{% endfor %}
-</ul>
+<div class="tagsContent">
+	<!-- 标签云 -->
+	<ul class="actions vertical small">
+		{% for tag in site.categories %}
+		<li style="display: inline-block;padding-top: 0.5em">
+			<a href="#{{ tag[0] }}" class="button small" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+				{{ tag[0] }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
 
-<!-- Main Content -->
-{% for tag in site.categories %}
+	<!-- Main Content -->
+	{% for tag in site.categories %}
 
 	<div>
 		<h2><span class="fa fa-tag listing-seperator" id="{{ tag[0] }}"> {{ tag[0] }}</span></h2>
 		{% for post in tag[1] %}
-		<div class="categories"> 
+		<div class="categories">
 			<div>
 				<a href="{{ post.url | prepend: site.baseurl }}">
 					<h3>{{ post.title }}</h3>
@@ -31,13 +32,69 @@ title: Categories
 		{% endfor %}
 	</div>
 	<hr>
-{% endfor %}
+	{% endfor %}
+</div>
 
+<a class="goTop">
+	<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0'
+	 stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'>
+		<line x1='12' y1='19' x2='12' y2='5'></line>
+		<polyline points='5 12 12 5 19 12'></polyline>
+	</svg>
+</a>
 
 <style>
+	.categories {
+		width: 49%;
+		display: inline-block;
+	}
 
-.categories {
-	width: 49%;
-	display: inline-block;
-}
+	.goTop {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		bottom: 1rem;
+		right: 1.375rem;
+		box-sizing: border-box;
+		z-index: 1100;
+		height: 2.75rem;
+		width: 2.75rem;
+		border: 0;
+		border-radius: 100%;
+		background: #26a69a;
+		cursor: pointer;
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+		transition: all .3s ease;
+	}
+
+	a.goTop:hover {
+		background: #0277bd;
+	}
+
+	.goTop img {
+		width: 10px;
+		height: 10px;
+	}
 </style>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	// 回到顶部
+	var oTop = $(".goTop");
+	var oWrapTop = $(".tagsContent");
+	oTop.click(function () {
+		document.documentElement.scrollTop = document.body.scrollTop = 0;
+	})
+	window.onscroll = function () {
+		var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		if (oScrollTop > oWrapTop.offset().top) {
+			oTop.css({
+				display: "flex"
+			})
+		} else {
+			oTop.css({
+				display: "none"
+			})
+		}
+	}
+</script>

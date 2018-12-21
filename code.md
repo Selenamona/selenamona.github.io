@@ -12,10 +12,8 @@ title: 不止代码
 
 
 ## | ICONFONT
-
-(Eva Icons 精选 SVG 图标)[https://akveo.github.io/eva-icons/#/]
+[Eva Icons 精选 SVG 图标](https://akveo.github.io/eva-icons/#/)
 
 
 ## | Echarts
-
-(v-charts 基于 Vue2.0 和 ECharts 封装的图表组件)[https://v-charts.js.org/#/toggle]
+[v-charts 基于 Vue2.0 和 ECharts 封装的图表组件](https://v-charts.js.org/#/toggle)

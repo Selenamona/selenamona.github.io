@@ -1,33 +1,33 @@
 <!-- Sidebar -->
-  <div id="sidebar">
-    <div class="inner">
+<div id="sidebar">
+  <div class="inner">
 
-      <!-- Search -->
-        <section id="search" class="alt">
-          <!-- <form method="post" action="#"> -->
-            <input type="text" name="query" id="query" placeholder="Search"/>
-          <!-- </form> -->
-        </section>
-        <ul id="searchItems" style="display: none"></ul>
-        <ul id="postTitles" style="display: none">
-          {% for post in site.posts %}
-             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <!-- <a href="{{ 'search' | absolute_url }}" id="resultPage"></a> -->
- 
+    <!-- Search -->
+    <section id="search" class="alt">
+      <!-- <form method="post" action="#"> -->
+      <input type="text" name="query" id="query" placeholder="Search" />
+      <!-- </form> -->
+    </section>
+    <ul id="searchItems" style="display: none"></ul>
+    <ul id="postTitles" style="display: none">
+      {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <!-- <a href="{{ 'search' | absolute_url }}" id="resultPage"></a> -->
 
-      <!-- Menu -->
-        <nav id="menu">
-          <header class="major">
-            <h2>Menu</h2>
-          </header>
-          <ul>
-            <li><a href="{{ '/' | absolute_url }}">Homepage</a></li>
-            <li><a href="{{ 'categories' | absolute_url }}">Category</a></li>
-            <li><a href="{{ 'ws' | absolute_url }}">Websites</a></li>
-            <li><a href="{{ 'readings' | absolute_url }}">Readings</a></li> 
-            <!-- <li>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <header class="major">
+        <h2>Menu</h2>
+      </header>
+      <ul>
+        <li><a href="{{ '/' | absolute_url }}">Homepage</a></li>
+        <li><a href="{{ 'categories' | absolute_url }}">Category</a></li>
+        <li><a href="{{ 'ws' | absolute_url }}">Websites</a></li>
+        <li><a href="{{ 'readings' | absolute_url }}">Readings</a></li>
+        <!-- <li>
               <span class="opener">CATEGORIES</span> 
               <ul>
                 {% for category in site.categories%}
@@ -35,7 +35,7 @@
                 {% endfor %}
               </ul> 
             </li> -->
-            <!-- <li><a href="#">Etiam Dolore</a></li>
+        <!-- <li><a href="#">Etiam Dolore</a></li>
             <li><a href="#">Adipiscing</a></li>
             <li>
               <span class="opener">Another Submenu</span>
@@ -49,96 +49,97 @@
             <li><a href="#">Maximus Erat</a></li>
             <li><a href="#">Sapien Mauris</a></li>
             <li><a href="#">Amet Lacinia</a></li> -->
-          </ul>
-        </nav>
+      </ul>
+    </nav>
 
-      <!-- Section -->
-        <section>
-          <header class="major">
-            <h2>Reading Journals</h2>
-          </header>
-          <div class="mini-posts">
-            <article>
-              <a href="{{ 'code' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic06.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="{{ 'code' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic10.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="{{ 'code' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic09.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-          </div>
-          <ul class="actions">
-            <li><a href="{{ 'elements' | absolute_url }}" class="button">More</a></li>
-          </ul>
-        </section>
-        
-      <!-- Section -->
-        <section>
-          <header class="major">
-            <h2>Get in touch</h2>
-          </header>
-          <p>Never forget why you started, and your goal can be reached. </p>
-          <ul class="contact">
-            <li class="fa-envelope-o">{{ site.email }}</li>
-            <li class="fa-phone">{{ site.phone }}</li>
-            <li class="fa-home">{{ site.street_address }}<br />
-            {{ site.city }}, {{ site.state }} {{ site.zip_code }}<br />
-            {{ site.country }}</li>
-          </ul>
-        </section>
+    <!-- Section -->
+    <section>
+      <header class="major">
+        <h2>Reading Journals</h2>
+      </header>
+      <div class="mini-posts">
+        <article>
+          <a href="{{ 'code' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic09.jpg" alt="" /></a>
+          <p>Iconfont Echarts and some other tools.</p>
+        </article>
+        <article>
+          <a href="{{ 'project' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic10.jpg" alt="" /></a>
+          <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+        </article>
+        <article>
+          <a href="{{ 'sth' | absolute_url }}" class="image"><img src="{{site.url}}/assets/images/pic06.jpg" alt="" /></a>
+          <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+        </article>
+      </div>
+      <ul class="actions">
+        <li><a href="{{ 'elements' | absolute_url }}" class="button">More</a></li>
+      </ul>
+    </section>
 
-      <!-- Footer -->
-        <footer id="footer">
-          <p class="copyright">&copy; {{ site.title }}. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>. Jekyll integration: <a href="https://andrewbanchi.ch">Andrew Banchich</a>.</p>
-        </footer>
-       
-    </div>
+    <!-- Section -->
+    <section>
+      <header class="major">
+        <h2>Get in touch</h2>
+      </header>
+      <p>Never forget why you started, and your goal can be reached. </p>
+      <ul class="contact">
+        <li class="fa-envelope-o">{{ site.email }}</li>
+        <li class="fa-phone">{{ site.phone }}</li>
+        <li class="fa-home">{{ site.street_address }}<br />
+          {{ site.city }}, {{ site.state }} {{ site.zip_code }}<br />
+          {{ site.country }}</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="copyright">&copy; {{ site.title }}. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>.
+        Design: <a href="https://html5up.net">HTML5 UP</a>. Jekyll integration: <a href="https://andrewbanchi.ch">Andrew
+          Banchich</a>.</p>
+    </footer>
+
   </div>
+</div>
 
 <script>
   // Search
   var oSearch = document.getElementById("query");  // 查询条件
   var oLi = document.getElementById("postTitles").children;  // 所有post li
   var oResult = document.getElementById("searchItems");   // 查询结果 items
-  oSearch.oninput = function(ev){
-      if(oSearch.value != ""){
-        oResult.innerHTML = "";
-        var oHas = false;
-        for(var i=0; i < oLi.length; i++){
-            var text = oLi[i].children[0].innerHTML;
-            if(text.indexOf(oSearch.value)>-1){
-              if(oResult.style.display == "none"){
-                oResult.style.display = "block";
-              }
-              oHas = true;
-              // 用 createElement 解决 appendChild 删除原有list bug
-              var newEle = document.createElement("li");
-              newEle.innerHTML = oLi[i].innerHTML;
-              oResult.appendChild(newEle);
-             
-            }
-        }
-        if(!oHas){
-          oResult.style.display = "none";
-        }
+  oSearch.oninput = function (ev) {
+    if (oSearch.value != "") {
+      oResult.innerHTML = "";
+      var oHas = false;
+      for (var i = 0; i < oLi.length; i++) {
+        var text = oLi[i].children[0].innerHTML;
+        if (text.indexOf(oSearch.value) > -1) {
+          if (oResult.style.display == "none") {
+            oResult.style.display = "block";
+          }
+          oHas = true;
+          // 用 createElement 解决 appendChild 删除原有list bug
+          var newEle = document.createElement("li");
+          newEle.innerHTML = oLi[i].innerHTML;
+          oResult.appendChild(newEle);
 
-
-      }else{
-        if(oResult.style.display == "block"){
-          oResult.style.display = "none";
         }
       }
+      if (!oHas) {
+        oResult.style.display = "none";
+      }
+
+
+    } else {
+      if (oResult.style.display == "block") {
+        oResult.style.display = "none";
+      }
+    }
   }
 
 </script>
 
 <style>
-
   #searchItems li {
-      list-style: none;
+    list-style: none;
   }
 </style>
