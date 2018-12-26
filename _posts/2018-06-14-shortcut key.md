@@ -41,17 +41,7 @@ Alt + Insert：新建类
 ctrl+shift+x   转为大写        
 ctrl+shift+y   转为小写       
 
-### xshell-常用命令
-
-ls       
-sh creditfrontol-exec.sh      
-cd ../logs/creditfrontol      
-tail -f creditfrontol.log       //查看日志      
-cat creditfrontol.log | grep '关键字' -C20     //检索        
-
-docker exec -it integratedqueryApplicationImpl /bin/bash	 
-
-
+ 
 ### MAC 快捷键
 
 Command–option-i 调试页面      
