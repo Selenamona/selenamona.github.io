@@ -50,14 +50,15 @@ clipboard.on('error', (e) => { // 复制失败
 **输入验证码**
 
 ```html
+<!-- 忽略反斜杆 -->
 <div class="code">
     <ul class="num">
-        <li>{{code.charAt(0)}}</li>
-        <li>{{code.charAt(1)}}</li>
-        <li>{{code.charAt(2)}}</li>
-        <li>{{code.charAt(3)}}</li>
-        <li>{{code.charAt(4)}}</li>
-        <li>{{code.charAt(5)}}</li>
+        <li>{\{code.charAt(0)\}}</li>
+        <li>{\{code.charAt(1)\}}</li>
+        <li>{\{code.charAt(2)\}}</li>
+        <li>{\{code.charAt(3)\}}</li>
+        <li>{\{code.charAt(4)\}}</li>
+        <li>{\{code.charAt(5)\}}</li>
         <input type="tel" maxlength="6" class="ipt" v-model="code" @input="codeIpt">
     </ul>
     <button @click="getCode" v-show="!ifSend">获取验证码</button>
