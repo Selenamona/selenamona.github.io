@@ -213,7 +213,6 @@ function unique(a) {
 
 ### 闭包
 
-
 ```javascript
 function fun(n,o) {
     console.log(o)
@@ -234,6 +233,13 @@ b: undefined,0,1,2
 c: undefined,0,1,1
 
 ```
+
+## 基础
+
+http 状态码：
+<img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/httpstatus.jpg" width="700" />
+ 
+
 
 
 
