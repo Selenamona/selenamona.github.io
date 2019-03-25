@@ -16,3 +16,10 @@ title: Readings
 
 
 [飞冰-中后台前端搭建](https://alibaba.github.io/ice/)
+
+[30 second of code](https://30secondsofcode.org/)
+
+[跨平台的桌面工具，将 Markdown 文档转成幻灯片](https://yhatt.github.io/marp/)
+
+
+| `“Tell me and I forget. Teach me and I remember. Involve me and I learn.” Benjamin Franklin`

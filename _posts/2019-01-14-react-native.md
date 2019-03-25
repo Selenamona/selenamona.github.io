@@ -2,7 +2,7 @@
 layout:     post
 title:      React Native
 summary: 
-categories: REACT
+categories: React
 technique: true
 ---
 
@@ -43,7 +43,9 @@ Try the follwing to fix the issue:
 
 ```
 - 根目录运行：
-react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ 
+react-native bundle --platform android --dev false --entry-file index.js   
+--bundle-output android/app/src/main/assets/index.android.bundle --assets-dest     
+android/app/src/main/res/ 
 
 - 重新 react-native run-android
 ```

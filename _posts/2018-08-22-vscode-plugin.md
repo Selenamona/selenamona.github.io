@@ -28,29 +28,29 @@ cssrem | git-hidtory
 
 2. 设置根字体，setting.json ; 改完重启
 
-```json
-"cssrem.rootFontSize":100,  // 100px -> 1rem
-"cssrem.fixedDigits": 2, 
-// "cssrem.autoRemovePrefixZero": 自动移除0开头的前缀，默认：true。
-```
+    ```json
+    "cssrem.rootFontSize":100,  // 100px -> 1rem
+    "cssrem.fixedDigits": 2, 
+    // "cssrem.autoRemovePrefixZero": 自动移除0开头的前缀，默认：true。
+    ```
 
 3. 项目中做 rem 适配
 
-```javascript
-// 屏幕适配
-(function(doc, win) {
-  var docEl = doc.documentElement
-  var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
-  var recalc = function() {
-      var clientWidth = docEl.clientWidth
-      if (!clientWidth) return
-      docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'  // 100px -> 1rem
-  }
-  if (!doc.addEventListener) return
-  win.addEventListener(resizeEvt, recalc, false)
-  doc.addEventListener('DOMContentLoaded', recalc, false)
-})(document, window)
-```
+    ```javascript
+    // 屏幕适配
+    (function(doc, win) {
+    var docEl = doc.documentElement
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    var recalc = function() {
+        var clientWidth = docEl.clientWidth
+        if (!clientWidth) return
+        docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'  // 100px -> 1rem
+    }
+    if (!doc.addEventListener) return
+    win.addEventListener(resizeEvt, recalc, false)
+    doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window)
+    ```
 ## | VSCode 一键生成.vue模版
 
 1. 安装 Vetur 插件，识别 vue 文件

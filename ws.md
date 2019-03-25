@@ -9,10 +9,9 @@ title: Websites
 
 #### Blog
 
-[阮一峰](http://www.ruanyifeng.com/blog/)  | [廖雪峰](https://www.liaoxuefeng.com/) | [梁音](http://www.cnblogs.com/liangyin/tag/JavaScript/) | [张鑫旭](http://www.zhangxinxu.com/) | [fundebug](https://blog.fundebug.com/) | [Jake](https://jakearchibald.com/)
-[大转转FE](http://www.cnblogs.com/zhuanzhuanfe/) | [静逸](http://www.cnblogs.com/liyunhua#top) | [Jason](https://atjason.com/categories/) | [牧之](http://muyunyun.cn/) | [卖烧烤夫斯基](http://www.cnblogs.com/constantince/) | [Cryptic](https://www.jianshu.com/u/4d7dd4c7e51d) 
-[听说](https://tasaid.com/)| [三毛](https://jkchao.cn/code) | [小酒窝](https://www.ouyang90.com/)| [周爱民](https://aimingoo.github.io/) | [唐巧](http://blog.devtang.com/) 
-
+[阮一峰](http://www.ruanyifeng.com/blog/)  | [廖雪峰](https://www.liaoxuefeng.com/) | [张鑫旭](http://www.zhangxinxu.com/) | [fundebug](https://blog.fundebug.com/) | [Jake](https://jakearchibald.com/)
+[大转转FE](http://www.cnblogs.com/zhuanzhuanfe/) | [Jason](https://atjason.com/categories/) | [牧之](http://muyunyun.cn/)  | [Cryptic](https://www.jianshu.com/u/4d7dd4c7e51d) 
+[听说](https://tasaid.com/)| [三毛](https://jkchao.cn/code)  
 [catonmat](https://catonmat.net/) | [samaltman](http://blog.samaltman.com/)
 
 
