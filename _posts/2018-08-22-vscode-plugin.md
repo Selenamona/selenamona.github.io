@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      VSCode 插件集合
-summary: 
+summary:
 categories: Guides
 technique: true
 ---
@@ -15,7 +15,7 @@ cssrem | git-hidtory | Turbo Console Log
 
 ## | vscode 删除空行
 
-1. Ctrl + F 
+1. Ctrl + F
 
 2. 查找：`^\s*(?=\r?$)\n`
 
@@ -30,7 +30,7 @@ cssrem | git-hidtory | Turbo Console Log
 
     ```json
     "cssrem.rootFontSize":100,  // 100px -> 1rem
-    "cssrem.fixedDigits": 2, 
+    "cssrem.fixedDigits": 2,
     // "cssrem.autoRemovePrefixZero": 自动移除0开头的前缀，默认：true。
     ```
 
@@ -56,7 +56,7 @@ cssrem | git-hidtory | Turbo Console Log
 1. 安装 Vetur 插件，识别 vue 文件
 2. 新建代码片段： file -> preferences -> user snippets -> new Global snippets file -> 文件命名 vue.json
 3. 添加自定义模板（如下）
-4. "prefix": "vue"，定义快捷键；使用：输入 vue，按键盘的tab 
+4. "prefix": "vue"，定义快捷键；使用：输入 vue，按键盘的tab
 
 ```json
 {
@@ -113,16 +113,9 @@ cssrem | git-hidtory | Turbo Console Log
         ],
         "description": "Log output to console"
     }
-} 
-``` 
+}
+```
 
+## | VSCode 保存文件后自动删除多余空格
 
-
-
- 
-
-
-
-
-
-
+files.trimTrailingWhitespace
