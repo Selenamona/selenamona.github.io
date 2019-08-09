@@ -100,6 +100,7 @@
         display: flex;
     }
     .container .contain {
+        width: 100%;
         flex: 1;
         font-family: "Roboto Slab", serif;
         letter-spacing: 0.5px;
@@ -174,6 +175,14 @@
     }
 </style>
 <script type="text/javascript">
+    // 设置内容显示完全[解决代码块可横向滚动]
+    var clientWidth = document.body.clientWidth || document.documentElement.clientWidth;
+    var sideBarWidth = document.getElementById("sidebar").offsetWidth;
+    var mainWidth = document.getElementById("main").offsetWidth; 
+    if(sideBarWidth + mainWidth > clientWidth) {
+        document.getElementById("main").style.width = (clientWidth - sideBarWidth) + "px";
+    }
+    
     //为超链接加上target='_blank'属性
     $('#main section a[href^="http"]').each(function () {
         $(this).attr('target', '_blank');
