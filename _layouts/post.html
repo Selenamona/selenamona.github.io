@@ -7,28 +7,21 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/assets/js/jquery.nav.js"></script>
 <script src="/utils/plugin_mouseHeart.js"></script>
-
 <html>
-
 {% include head.html %}
-
 <body>
-
     <!-- Wrapper page-->
     <div id="wrapper">
-
         <!-- Main -->
         <div id="main">
             <div class="inner">
-
                 {% include header.html %}
-
                 <!-- Content -->
                 <section class="main-contant">
-                	<header class="main">
-                		<h1>{{ page.title }}</h1>
-                	</header>
-                  <!-- {% if page.image %}
+                    <header class="main">
+                        <h1>{{ page.title }}</h1>
+                    </header>
+                    <!-- {% if page.image %}
                 	<span class="image main"><img src="assets/images/{{ page.image }}.jpg" alt="" /></span>
                   {% endif %} -->
                     <div class="container">
@@ -44,7 +37,6 @@
                             {{page.previous.title | strip_html | truncate: 30}}
                           </a>
                           {% endif %}
-                
                           {% if page.next.url %}
                           <a href="{{page.next.url | relative_url }}">
                             {{page.next.title | strip_html | truncate: 30}}
@@ -53,217 +45,206 @@
                           {% endif %}
                     </div> -->
                     <!-- 目录 定位跳转 -->
-                    <div class="side-catalog"> 
+                    <div class="side-catalog">
                         <ul class="catalog-body"></ul>
                     </div>
-                    <a class="goTop">  
-                        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'><line x1='12' y1='19' x2='12' y2='5'></line><polyline points='5 12 12 5 19 12'></polyline></svg>
+                    <a class="goTop">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'
+                            stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
+                            class='feather feather-arrow-up'>
+                            <line x1='12' y1='19' x2='12' y2='5'></line>
+                            <polyline points='5 12 12 5 19 12'></polyline>
+                        </svg>
                     </a>
                     <!-- <div class="goTop icon fa-chevron-circle-up fa-2x"></div> -->
                     <!-- chevron-circle-up arrow-up-->
-                <section>
+                    <section>
             </div>
         </div>
-
         {% include sidebar.html %}
-
     </div>
-
     {% include footer.html %}
-
 </body>
-
 </html>
-
 <style>
- .post-previous-next {
-    display: flex;
-    justify-content: space-between;
- }
- .goTop { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 1rem;
-    right: 1.375rem;
-    box-sizing: border-box;
-    z-index: 1100;
-    height: 2.75rem;
-    width: 2.75rem;
-    border: 0;
-    border-radius: 100%;
-    background: #26a69a; 
-    cursor: pointer;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
-    transition: all .3s ease;
- } 
- a.goTop:hover {
-    background: #0277bd;
- }
- .goTop img {
-     width: 10px;
-     height: 10px;
- }
- .container {
-     display: flex;
- }
- .container .contain {
-     flex: 1;
-     font-family:"Roboto Slab", serif;
-     letter-spacing: 0.5px;
- }
- .empty {
-     display: none;
-     width: 200px;
- }
- 
- .side-catalog {
-     position: fixed;
-     right: 0.1em;
-     top: 10em;
-     display: none;
-     overflow: auto;
-     height: 100%;
-     width:190px;
- }
-.side-catalog .catalog-body {
-  position: relative;
-  height: auto;
-  overflow: hidden;
-  padding-left: 0px;
-  padding-right: 5px;
-  text-indent: 0;
-}
-.side-catalog .catalog-body li {
-  position: relative;
-  list-style: none;
-}
-.side-catalog .catalog-body li a {
-  padding-left: 10px;
-  max-width: 180px;
-  display: inline-block;
-  vertical-align: middle;
-  height: 30px;
-  line-height: 30px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  border-bottom: none;
-  color: #7b868a;
-}
-.side-catalog .catalog-body .h1_nav,
-.side-catalog .catalog-body .h2_nav,
-.side-catalog .catalog-body .h3_nav {
-  margin-left: 0;
-  font-size: 13px;
-  font-weight: bold;
-}
-.side-catalog .catalog-body .h4_nav,
-.side-catalog .catalog-body .h5_nav,
-.side-catalog .catalog-body .h6_nav {
-  margin-left: 10px;
-  font-size: 12px;
-}
-.side-catalog .catalog-body .active {
-  border-radius: 4px;
-  background-color: #F5F5F5;
-}
-.side-catalog .catalog-body .active a {
-  color: #f56a6a !important;
-}
-.highlight code {
-    position: relative;
-}
-.copyBtn {  
-    position: absolute;
-    right: 1.5em;
-    border-bottom: none;
-    cursor: pointer;
-    color: #b0aaaa;
-}
-
+    /* .highlighter-rouge {
+        max-width: 80%; 
+        overflow-x: auto;
+    } */
+    .post-previous-next {
+        display: flex;
+        justify-content: space-between;
+    }
+    .goTop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 1rem;
+        right: 1.375rem;
+        box-sizing: border-box;
+        z-index: 1100;
+        height: 2.75rem;
+        width: 2.75rem;
+        border: 0;
+        border-radius: 100%;
+        background: #26a69a;
+        cursor: pointer;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+        transition: all .3s ease;
+    }
+    a.goTop:hover {
+        background: #0277bd;
+    }
+    .goTop img {
+        width: 10px;
+        height: 10px;
+    }
+    .container {
+        display: flex;
+    }
+    .container .contain {
+        flex: 1;
+        font-family: "Roboto Slab", serif;
+        letter-spacing: 0.5px;
+    }
+    .empty {
+        display: none;
+        width: 200px;
+    }
+    .side-catalog {
+        position: fixed;
+        right: 0.1em;
+        top: 10em;
+        display: none;
+        overflow: auto;
+        height: 100%;
+        width: 190px;
+    }
+    .side-catalog .catalog-body {
+        position: relative;
+        height: auto;
+        overflow: hidden;
+        padding-left: 0px;
+        padding-right: 5px;
+        text-indent: 0;
+    }
+    .side-catalog .catalog-body li {
+        position: relative;
+        list-style: none;
+    }
+    .side-catalog .catalog-body li a {
+        padding-left: 10px;
+        max-width: 180px;
+        display: inline-block;
+        vertical-align: middle;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        border-bottom: none;
+        color: #7b868a;
+    }
+    .side-catalog .catalog-body .h1_nav,
+    .side-catalog .catalog-body .h2_nav,
+    .side-catalog .catalog-body .h3_nav {
+        margin-left: 0;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .side-catalog .catalog-body .h4_nav,
+    .side-catalog .catalog-body .h5_nav,
+    .side-catalog .catalog-body .h6_nav {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .side-catalog .catalog-body .active {
+        border-radius: 4px;
+        background-color: #F5F5F5;
+    }
+    .side-catalog .catalog-body .active a {
+        color: #f56a6a !important;
+    }
+    .highlight code {
+        position: relative;
+    }
+    .copyBtn {
+        position: absolute;
+        right: 1.5em;
+        border-bottom: none;
+        cursor: pointer;
+        color: #b0aaaa;
+    }
 </style>
-
 <script type="text/javascript">
-
-
     //为超链接加上target='_blank'属性
-    $('#main section a[href^="http"]').each(function() {
+    $('#main section a[href^="http"]').each(function () {
         $(this).attr('target', '_blank');
     });
     // 回到顶部
-    var oTop = $(".goTop"); 
+    var oTop = $(".goTop");
     var oWrapTop = $(".container");
-    oTop.click(function(){ 
-        document.documentElement.scrollTop = document.body.scrollTop = 0; 
+    oTop.click(function () {
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
     })
-    window.onscroll = function(){
+    window.onscroll = function () {
         var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        if(oScrollTop > oWrapTop.offset().top){
+        if (oScrollTop > oWrapTop.offset().top) {
             oTop.css({
-                display:"flex"
+                display: "flex"
             })
-        }else{
+        } else {
             oTop.css({
-                display:"none"
+                display: "none"
             })
         }
     }
-   
     // // 运行代码片段--------------------------------
     // /* 获得整个页面可被运行的代码片断*/
     // var code = $('code');
-
     // /*为每个can_run的代码区域添加按钮并绑定事件*/
     // code.each(function() {
     //     var button = $('<button class="runcode">运行</button>'), //按钮
     //         p = $('<p style="text-align:right;"></p>'), //按钮加入到段落中
     //         $this = $(this); //保存当前代码区域的引用
-
     //     /*组织结构，并在can_run之后添加这个结构*/
     //     p.append(button);
     //     $this.after(p);
-
     //     /*为当前代码片段对应的按钮绑定点击事件*/
     //     button.on('click', function() {
     //         var win = window.open('', '_blank', ''); //开启新窗口
     //         win.document.write( $this.text().replace("复制代码","") ); //向新窗口输出内容
     //     });
     // });
-
     //  导航 -----------
     function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        s.parentNode.insertBefore(o, s);
     }
-
-    function generateCatalog (selector) {
-        var P = $('section.main-contant'),a,n,t,l,i,c;
+    function generateCatalog(selector) {
+        var P = $('section.main-contant'), a, n, t, l, i, c;
         a = P.find('h1,h2,h3,h4,h5,h6');
         a.each(function () {
             n = $(this).prop('tagName').toLowerCase();
-            i = "#"+$(this).prop('id');
+            i = "#" + $(this).prop('id');
             t = $(this).text();
-            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
-            l = $('<li class="'+n+'_nav"></li>').append(c);
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
             $(selector).append(l);
         });
-        return true;    
+        return true;
     }
-
     generateCatalog(".catalog-body");
-
     // toggle side catalog
-    $(".catalog-toggle").click((function(e){
+    $(".catalog-toggle").click((function (e) {
         e.preventDefault();
         $('.side-catalog').toggleClass("fold")
     }))
-
     /*
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
      * Fork by Hux to support padding
@@ -283,21 +264,18 @@
             padding: 80
         });
     });
-
     // 导航结束-------------------
-
     // 复制 代码片段 
     var $copyBtn = $("<a class='copyBtn'>复制代码</a>")
     $(".highlight code").prepend($copyBtn);
-    $copyBtn.on("click",(ev)=>{
+    $copyBtn.on("click", (ev) => {
         let $aux = $("<input/>");
-        let txt = ev.target.parentElement.innerText.replace("复制代码","");
+        let txt = ev.target.parentElement.innerText.replace("复制代码", "");
         $aux.val(txt);
         $('body').append($aux);
         $aux.select();
         let content = window.getSelection().toString();
-        document.execCommand("Cut",false,null);
+        document.execCommand("Cut", false, null);
         $aux.remove();
     })
-
 </script>
