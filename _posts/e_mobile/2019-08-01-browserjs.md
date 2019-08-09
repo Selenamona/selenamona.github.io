@@ -1,15 +1,15 @@
 ---
 layout:     post
-title:      移动端浏览器类型判断
+title:      移动端浏览器类型以及版本号判断
 summary:
 categories: Mobile
 technique: true
 ---
 
 ```javascript
+var ua = navigator.userAgent.toLowerCase(); 
 window.browser = {
     versions: function() {
-        var ua = navigator.userAgent.toLowerCase(); 
         return {
             trident: ua.indexOf('trident') > -1, //IE内核
             presto: ua.indexOf('presto') > -1, //opera内核
@@ -20,11 +20,7 @@ window.browser = {
             android: ua.indexOf('android') > -1 || ua.indexOf('adr') > -1, //android终端
             iPhone: ua.indexOf('iphone') > -1, //是否为iPhone或者QQHD浏览器
             iPad: ua.indexOf('ipad') > -1, //是否iPad
-            webApp: ua.indexOf('safari') == -1, //是否web应该程序，没有头部与底部
-            weixin: ua.indexOf('micromessenger') > -1, //是否微信 （2015-01-22新增）
-            qq: ua.match(/\sqq/i) == " qq",  //是否QQ 
-            /**浏览器判断 */
-            YdtApp: ua.indexOf("ydt_app") > -1,  // app 
+            webApp: ua.indexOf('safari') == -1, // 是否web应用程序，没有头部与底部
             WeChat: ua.indexOf("micromessenger") > -1,  // 微信  
             QQBuildIn: ua.match(/\sqq/i) == " qq" && ua.indexOf("micromessenger") < 0, // QQ 内置
             QQ: ua.indexOf("mqqbrowser") > -1 && ua.indexOf("micromessenger") < 0 && ua.match(/\sqq/i) != " qq",  
@@ -34,9 +30,8 @@ window.browser = {
             Safari: ua.indexOf("safari") > -1 && ua.indexOf("iphone") > -1, // IOS Safari 
         };
     }(),
-    versionInfo() { // 判断浏览器
+    versionInfo() { // 判断浏览器，返回浏览器类型以及版本号
         let res = null; 
-        let ua = navigator.userAgent.toLowerCase(); 
         let uaVersion = {
             YdtApp: this.versions.android?["", "Android"]:["", "IOS"],
             WeChat: ua.match(/micromessenger\/([\d.]+)/),
@@ -53,17 +48,22 @@ window.browser = {
                 break;
             }
         } 
-        // var is360 = (function(option, value){
-        //     var mimeTypes = navigator.mimeTypes;
-        //     for (var mt in mimeTypes) {
-        //         if (mimeTypes[mt][option] == value) {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // })("type", "application/vnd.chromium.remoting-viewer");
         return res || { type: "others", version: "others"};
     },
-    language: (navigator.browserLanguage || navigator.language).toLowerCase(),
 } 
 ``` 
+
+
+网络流传判断 360 浏览器方法：[兼容性不咋滴]
+
+```javascript
+var is360 = (function(option, value){
+    var mimeTypes = navigator.mimeTypes;
+    for (var mt in mimeTypes) {
+        if (mimeTypes[mt][option] == value) {
+            return true;
+        }
+    }
+    return false;
+})("type", "application/vnd.chromium.remoting-viewer");
+```
