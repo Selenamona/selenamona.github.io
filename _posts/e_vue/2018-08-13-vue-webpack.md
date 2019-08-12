@@ -14,6 +14,20 @@ npm install
 npm run dev
 ```
 
+## | 配置路径 @
+
+```js
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: { 
+      '@': resolve('src'),  
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components'), 
+    }
+  },
+```
+
+
 **Vue 项目结构：**
 
 ├── build --------------------------------- webpack相关配置文件    
@@ -40,7 +54,7 @@ npm run dev
 ├── .gitignore------------------------------- 配置git可忽略的文件   
 
 
-## 主要配置文件
+## | 主要配置文件
 
 ```json
  "scripts": {

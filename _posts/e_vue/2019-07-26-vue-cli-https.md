@@ -50,6 +50,10 @@ var credentials = {key: privateKey, cert: certificate};
 此时 build/cert 目录下生成两个文件 private.pem/file.crt
 
 
+## | 参考
+
 [vue-cli如何支持本地https](https://www.jianshu.com/p/dabe3c249f3e)
+
 [expressjs 配置自有证书 https 服务](https://www.jianshu.com/p/27071f5a076f)
+
 [vue-cli项目如何加入本地https](https://github.com/zp1112/blog/issues/4)

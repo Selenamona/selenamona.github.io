@@ -1,10 +1,12 @@
 ---
 layout:     post
 title:      移动端浏览器类型以及版本号判断
-summary:
+summary:     
 categories: Mobile
 technique: true
 ---
+
+## | 浏览器以及版本号区分
 
 ```javascript
 var ua = navigator.userAgent.toLowerCase(); 
@@ -66,4 +68,13 @@ var is360 = (function(option, value){
     }
     return false;
 })("type", "application/vnd.chromium.remoting-viewer");
+```
+
+
+## | 区分 Android IOS 
+
+```javascript
+if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+} else if (/(Android)/i.test(navigator.userAgent)) {
+}
 ```
