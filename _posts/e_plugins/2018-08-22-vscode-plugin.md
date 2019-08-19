@@ -119,3 +119,14 @@ CSS Peek | cssrem | Bracket Pair Colorizer | Emoji | vscode-icons
 ## | VSCode 保存文件后自动删除多余空格
 
 files.trimTrailingWhitespace
+
+## | 常见问题
+
+vscode 执行 npm 报错：
+
+- 系统变量添加 npm 安装路径
+- 查看npm安装路径：npm root -g
+
+
+
+
