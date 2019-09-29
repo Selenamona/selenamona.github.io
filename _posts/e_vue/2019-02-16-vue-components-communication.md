@@ -33,6 +33,23 @@ provide/inject 是 vue2.2.0 新增的 api
 
 无论子组件嵌套有多深, 只要调用了inject 就可以注入 provide 中的数据；
 
+## | sync & update 
+
+通过sync修饰符，来实现子组件更新父组件状态，是目前写法上最方便的语法糖了。
+
+1、父组件声明状态active 
+
+`<compo :foo.sync="active"></compo>`
+
+这种语法糖其实会被解析成
+
+`<compo :foo="active" @update:foo="val => active = val"></compo>`
+
+2、子组件修改父组件active的值:
+
+`this.$emit('update:foo', newValue)`
+ 
+
 ## | ref 
 
 ## | eventBus
