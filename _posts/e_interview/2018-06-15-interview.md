@@ -21,13 +21,13 @@ var getName = function () { alert (4);};
 function getName() { alert (5);}
 
 //请写出以下输出结果：
-Foo.getName();
-getName();
-Foo().getName();
-getName();
-new Foo.getName();
-new Foo().getName();
-new new Foo().getName();
+Foo.getName(); 
+getName(); 
+Foo().getName(); 
+getName(); 
+new Foo.getName(); 
+new Foo().getName(); 
+new new Foo().getName(); 1
 ```
 
 > 解析：
