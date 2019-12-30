@@ -1,9 +1,24 @@
 # [Selenamona](https://selenamona.github.io/)
 
 
+1：查看当前镜像库：
+
+gem sources -l
+
+2： 修改gem的库地址：
+
+gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+
+brew info ruby
+
+
 #########################################
 
 gem install jekyll
+
+<!-- sudo gem install --user-install bundler jekyll 
+
+export PATH=${PATH}:/Users/tinytongtong/.gem/ruby/2.6.0/bin  -->
 
 gem install bundler
 
