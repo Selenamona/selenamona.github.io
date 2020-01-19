@@ -22,20 +22,20 @@
                 <section>
                     <div class="posts">
                         {% for post in paginator.posts %}
-                            <!-- {% if post.technique %} -->
-                                <article>	
-                                    <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
-                                    <h3>{{ post.title }}</h3>
-                                    {% if post.summary %}
-                                    <p>{{ post.summary | strip_html | truncate: 100 }}</p>
-                                    {% else %}
-                                    <p>{{ post.content | strip_html | truncate: 100 }}</p>
-                                    {% endif %}
-                                    <ul class="actions">
-                                        <li><a href="{{ post.url | absolute_url }}" class="button">More</a></li>
-                                    </ul>
-                                </article>
-                            <!-- {% endif %} -->
+                        <!-- {% if post.technique %} -->
+                        <article>
+                            <!-- <a href="{{ post.url }}" class="image"><img src="assets/images/{{ post.image }}.jpg" alt="" /></a> -->
+                            <h3>{{ post.title }}</h3>
+                            {% if post.summary %}
+                            <p>{{ post.summary | strip_html | truncate: 100 }}</p>
+                            {% else %}
+                            <p>{{ post.content | strip_html | truncate: 100 }}</p>
+                            {% endif %}
+                            <ul class="actions">
+                                <li><a href="{{ post.url | absolute_url }}" class="button">More</a></li>
+                            </ul>
+                        </article>
+                        <!-- {% endif %} -->
                         {% endfor %}
                     </div>
                 </section>
@@ -44,25 +44,25 @@
                 {% if paginator.total_pages > 1 %}
                 <ul class="pagination">
                     {% if paginator.previous_page %}
-                        <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button icon fa-arrow-circle-left">Prev</a></li>
+                    <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button icon fa-arrow-circle-left">Prev</a></li>
                     {% else %}
                     <li><span class="button disabled icon fa-arrow-circle-left">&laquo; Prev</span></li>
                     {% endif %}
 
                     {% for page in (1..paginator.total_pages) %}
-                        {% if page == paginator.page %}
-                        <li><em class="page active">{{ page }}</em></li>
-                        {% elsif page == 1 %}
-                        <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="page">{{page}}</a></li>
-                        {% else %}
-                        <li><a href="{{ site.url}}/page{{page}} " class="page">{{page}}</a></li>
-                        {% endif %}
+                    {% if page == paginator.page %}
+                    <li><em class="page active">{{ page }}</em></li>
+                    {% elsif page == 1 %}
+                    <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="page">{{page}}</a></li>
+                    {% else %}
+                    <li><a href="{{ site.url}}/page{{page}} " class="page">{{page}}</a></li>
+                    {% endif %}
                     {% endfor %}
 
                     {% if paginator.next_page %}
-                        <li><a class="button" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next <span class="icon fa-arrow-circle-right"></span></a></li>
+                    <li><a class="button" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next <span class="icon fa-arrow-circle-right"></span></a></li>
                     {% else %}
-                        <li><span class="button disabled">Next <span class="icon fa-arrow-circle-right"></span></span></li>
+                    <li><span class="button disabled">Next <span class="icon fa-arrow-circle-right"></span></span></li>
                     {% endif %}
                 </ul>
                 {% endif %}
@@ -89,6 +89,3 @@
     }
 </style>
 <script src="/utils/plugin_mouseHeart.js"></script>
-
-
- 

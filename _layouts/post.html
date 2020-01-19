@@ -9,6 +9,7 @@
 <script src="/utils/plugin_mouseHeart.js"></script>
 <html>
 {% include head.html %}
+
 <body>
     <!-- Wrapper page-->
     <div id="wrapper">
@@ -49,9 +50,7 @@
                         <ul class="catalog-body"></ul>
                     </div>
                     <a class="goTop">
-                        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'
-                            stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
-                            class='feather feather-arrow-up'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'>
                             <line x1='12' y1='19' x2='12' y2='5'></line>
                             <polyline points='5 12 12 5 19 12'></polyline>
                         </svg>
@@ -65,12 +64,14 @@
     </div>
     {% include footer.html %}
 </body>
+
 </html>
-<style>  
+<style>
     .post-previous-next {
         display: flex;
         justify-content: space-between;
     }
+
     .goTop {
         display: flex;
         align-items: center;
@@ -89,26 +90,32 @@
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
         transition: all .3s ease;
     }
+
     a.goTop:hover {
         background: #0277bd;
     }
+
     .goTop img {
         width: 10px;
         height: 10px;
     }
+
     .container {
         display: flex;
     }
+
     .container .contain {
         width: 100%;
         flex: 1;
         font-family: "Roboto Slab", serif;
         letter-spacing: 0.5px;
     }
+
     .empty {
         display: none;
         width: 200px;
     }
+
     .side-catalog {
         position: fixed;
         right: 0.1em;
@@ -118,6 +125,7 @@
         height: 100%;
         width: 190px;
     }
+
     .side-catalog .catalog-body {
         position: relative;
         height: auto;
@@ -126,10 +134,12 @@
         padding-right: 5px;
         text-indent: 0;
     }
+
     .side-catalog .catalog-body li {
         position: relative;
         list-style: none;
     }
+
     .side-catalog .catalog-body li a {
         padding-left: 10px;
         max-width: 180px;
@@ -143,6 +153,7 @@
         border-bottom: none;
         color: #7b868a;
     }
+
     .side-catalog .catalog-body .h1_nav,
     .side-catalog .catalog-body .h2_nav,
     .side-catalog .catalog-body .h3_nav {
@@ -150,22 +161,27 @@
         font-size: 13px;
         font-weight: bold;
     }
+
     .side-catalog .catalog-body .h4_nav,
     .side-catalog .catalog-body .h5_nav,
     .side-catalog .catalog-body .h6_nav {
         margin-left: 10px;
         font-size: 12px;
     }
+
     .side-catalog .catalog-body .active {
         border-radius: 4px;
         background-color: #F5F5F5;
     }
+
     .side-catalog .catalog-body .active a {
         color: #f56a6a !important;
     }
+
     .highlight code {
         position: relative;
     }
+
     .copyBtn {
         position: absolute;
         right: 1.5em;
@@ -178,22 +194,22 @@
     // 设置内容显示完全[解决代码块可横向滚动]
     var clientWidth = document.body.clientWidth || document.documentElement.clientWidth;
     var sideBarWidth = document.getElementById("sidebar").offsetWidth;
-    var mainWidth = document.getElementById("main").offsetWidth; 
-    if(sideBarWidth + mainWidth > clientWidth) {
+    var mainWidth = document.getElementById("main").offsetWidth;
+    if (sideBarWidth + mainWidth > clientWidth) {
         document.getElementById("main").style.width = (clientWidth - sideBarWidth) + "px";
     }
-    
+
     //为超链接加上target='_blank'属性
-    $('#main section a[href^="http"]').each(function () {
+    $('#main section a[href^="http"]').each(function() {
         $(this).attr('target', '_blank');
     });
     // 回到顶部
     var oTop = $(".goTop");
     var oWrapTop = $(".container");
-    oTop.click(function () {
+    oTop.click(function() {
         document.documentElement.scrollTop = document.body.scrollTop = 0;
     })
-    window.onscroll = function () {
+    window.onscroll = function() {
         var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         if (oScrollTop > oWrapTop.offset().top) {
             oTop.css({
@@ -223,18 +239,21 @@
     //     });
     // });
     //  导航 -----------
-    function async(u, c) {
-        var d = document, t = 'script',
+    function async (u, c) {
+        var d = document,
+            t = 'script',
             o = d.createElement(t),
             s = d.getElementsByTagName(t)[0];
         o.src = u;
-        if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+        if (c) { o.addEventListener('load', function(e) { c(null, e); }, false); }
         s.parentNode.insertBefore(o, s);
     }
+
     function generateCatalog(selector) {
-        var P = $('section.main-contant'), a, n, t, l, i, c;
+        var P = $('section.main-contant'),
+            a, n, t, l, i, c;
         a = P.find('h1,h2,h3,h4,h5,h6');
-        a.each(function () {
+        a.each(function() {
             n = $(this).prop('tagName').toLowerCase();
             i = "#" + $(this).prop('id');
             t = $(this).text();
@@ -246,7 +265,7 @@
     }
     generateCatalog(".catalog-body");
     // toggle side catalog
-    $(".catalog-toggle").click((function (e) {
+    $(".catalog-toggle").click((function(e) {
         e.preventDefault();
         $('.side-catalog').toggleClass("fold")
     }))
@@ -254,7 +273,7 @@
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
      * Fork by Hux to support padding
      */
-    async("{{ '/assets/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+    async ("{{ '/assets/js/jquery.nav.js' | prepend: site.baseurl }}", function() {
         $('.catalog-body').onePageNav({
             currentClass: "active",
             changeHash: !1,
