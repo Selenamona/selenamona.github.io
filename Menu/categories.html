@@ -4,97 +4,172 @@ title: Categories
 ---
 
 <div class="tagsContent">
-	<!-- 标签云 -->
-	<ul class="actions vertical small">
-		{% for tag in site.categories %}
-		<li style="display: inline-block;padding-top: 0.5em">
-			<a href="#{{ tag[0] }}" class="button small" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-				{{ tag[0] }}
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
+    <div class="total-num">👉 _TOTAL_{{site.posts.size}}</div>
+    <!-- 标签云 -->
+    <ul class="actions vertical small">
+        {% for tag in site.categories %}
+        <li style="display: inline-block;padding-top: 0.5em">
+            <a href="#{{ tag[0] }}" class="button small" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                {{ tag[0] }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- Main Content -->
+    {% for tag in site.categories %}
+    <div>
+        <h2><span class="fa fa-tag listing-seperator" id="{{ tag[0] }}"> {{ tag[0] }} @{{ tag[1].size }}</span></h2>
+        {% for post in tag[1] %}
+        <div class="categories">
+            <div>
+                <a href="{{ post.url | prepend: site.baseurl }}">
+                    <h3>{{ post.title}}</h3>
+                </a>
+                <!-- <p>{{ post.date | date:"%Y-%m-%d" }}</p> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    {% endfor %}
 
-	<!-- Main Content -->
-	{% for tag in site.categories %}
+    <!-- by year -->
+    <!-- <div class="mini-post-list js-result d-none">
+        {%- assign _sorted_list = site.posts -%}
+        {%- assign _sorted_list = _sorted_list | sort: 'date' -%}
+        {%- assign _sorted_list = _sorted_list | reverse -%}
 
-	<div>
-		<h2><span class="fa fa-tag listing-seperator" id="{{ tag[0] }}"> {{ tag[0] }}</span></h2>
-		{% for post in tag[1] %}
-		<div class="categories">
-			<div>
-				<a href="{{ post.url | prepend: site.baseurl }}">
-					<h3>{{ post.title }}</h3>
-				</a>
-				<!-- <p>{{ post.date | date:"%Y-%m-%d" }}</p> -->
-			</div>
-		</div>
-		{% endfor %}
-	</div>
-	<hr>
-	{% endfor %}
+        {%- for _article in _sorted_list -%}
+        {%- assign _tags = '' -%}
+        {%- for _tag in _article.tags -%}
+        {%- assign _tag_encode = _tag | strip | url_encode -%}
+        {%- if forloop.last -%}
+        {%- assign _tags = _tags | append: _tag_encode -%}
+        {%- else -%}
+        {%- assign _tags = _tags | append: _tag_encode | append: ',' -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {% comment %} group by year {% endcomment %}
+        {%- assign _currentdate = _article.date | date: '%Y' -%}
+        {%- if _currentdate != _date -%}
+        {%- unless forloop.first -%}</section>{%- endunless -%}
+        <section>
+            <div class="fa listing-seperator">
+                <div class="tag-text">{{ _currentdate }}</div>
+            </div>
+            {%- assign _date = _currentdate -%}
+            {%- endif -%}
+
+            <div class="post-preview item" data-tags="{{ _tags }}">
+                <a href="{{ _article.url | prepend: site.baseurl }}">
+                    <div class="post-title">
+                        {{ _article.title }}
+                    </div>
+                    {% if _article.subtitle %}
+                    <div class="post-subtitle">
+                        {{ _article.subtitle }}
+                    </div>
+                    {% endif %}
+                </a>
+            </div>
+            {%- if forloop.last -%}
+            </section>{%- endif -%}
+            {% endfor %}
+            </div> -->
 </div>
-
 <a class="goTop">
-	<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0'
-	 stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'>
-		<line x1='12' y1='19' x2='12' y2='5'></line>
-		<polyline points='5 12 12 5 19 12'></polyline>
-	</svg>
+    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up'>
+        <line x1='12' y1='19' x2='12' y2='5'></line>
+        <polyline points='5 12 12 5 19 12'></polyline>
+    </svg>
 </a>
 
 <style>
-	.categories {
-		width: 49%;
-		display: inline-block;
-	}
+    .categories {
+        width: 49%;
+        display: inline-block;
+    }
 
-	.goTop {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: fixed;
-		bottom: 1rem;
-		right: 1.375rem;
-		box-sizing: border-box;
-		z-index: 1100;
-		height: 2.75rem;
-		width: 2.75rem;
-		border: 0;
-		border-radius: 100%;
-		background: #26a69a;
-		cursor: pointer;
-		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
-		transition: all .3s ease;
-	}
+    .goTop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 1rem;
+        right: 1.375rem;
+        box-sizing: border-box;
+        z-index: 1100;
+        height: 2.75rem;
+        width: 2.75rem;
+        border: 0;
+        border-radius: 100%;
+        background: #26a69a;
+        cursor: pointer;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+        transition: all .3s ease;
+    }
 
-	a.goTop:hover {
-		background: #0277bd;
-	}
+    a.goTop:hover {
+        background: #0277bd;
+    }
 
-	.goTop img {
-		width: 10px;
-		height: 10px;
-	}
+    .goTop img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .tag-text {
+        font-size: 26px;
+        color: #f56a6a;
+        font-weight: bold;
+        margin: 20px 0 10px;
+    }
+
+    .post-title {
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .post-preview {
+        padding: 10px 0;
+        margin: 0 10px;
+        border-bottom: 1px solid #f5f3f3;
+    }
+
+    .post-preview a {
+        color: #404040;
+
+    }
+
+    .post-preview a:hover {
+        color: #77b8bb;
+    }
+
+    .total-num {
+        color: #f56a6a;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
 </style>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
-	// 回到顶部
-	var oTop = $(".goTop");
-	var oWrapTop = $(".tagsContent");
-	oTop.click(function () {
-		document.documentElement.scrollTop = document.body.scrollTop = 0;
-	})
-	window.onscroll = function () {
-		var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-		if (oScrollTop > oWrapTop.offset().top) {
-			oTop.css({
-				display: "flex"
-			})
-		} else {
-			oTop.css({
-				display: "none"
-			})
-		}
-	}
+    // 回到顶部
+    var oTop = $(".goTop");
+    var oWrapTop = $(".tagsContent");
+    oTop.click(function() {
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    })
+    window.onscroll = function() {
+        var oScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (oScrollTop > oWrapTop.offset().top) {
+            oTop.css({
+                display: "flex"
+            })
+        } else {
+            oTop.css({
+                display: "none"
+            })
+        }
+    }
 </script>
