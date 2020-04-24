@@ -103,5 +103,31 @@ provide/inject 是 vue2.2.0 新增的 api
 
 ## | $attrs & $listeners
 
+## | 监听组件声明周期
+
+通常我们监听组件生命周期会使用 $emit ，父组件接收事件来进行通知
+
+```javascript
+// 子组件
+export default {
+    mounted() {
+        this.$emit('listenMounted')
+    }
+}
+// 父组件
+<template>
+    <div>
+        <List @listenMounted="listenMounted" />
+    </div>
+</template> 
+```
+
+其实还有一种简洁的方法，使用 @hook 即可监听组件生命周期，组件内无需做任何改变。同样的， created 、 updated 等也可以使用此方法。
+
+```javascript
+<template>
+    <List @hook:mounted="listenMounted" />
+</template>
+``` 
 
 [原文链接](https://juejin.im/post/5d267dcdf265da1b957081a3)
