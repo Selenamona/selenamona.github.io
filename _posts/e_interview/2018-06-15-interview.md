@@ -240,6 +240,25 @@ http 状态码：
 <img src="https://raw.githubusercontent.com/Selenamona/Selenamona.github.io/master/assets/images/httpstatus.jpg" width="700" />
 
 
+## 面试题整理
+
+```javascript
+var x =[12,23];
+function fn(y){
+    y[0] = 100;
+    y=[100];
+    y[1]=200;
+console.log(y);
+}
+fn(x);
+console.log(x);
+
+// [100, 200]
+// [100, 23]
+```
+
+
+
 [FE](https://github.com/qiu-deqing/FE-interview)
 
 
