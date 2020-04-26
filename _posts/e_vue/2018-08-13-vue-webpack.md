@@ -57,11 +57,11 @@ npm run dev
 ## | 主要配置文件
 
 ```json
- "scripts": {
-        "dev": "node build/dev-server.js",
-        "start": "node build/dev-server.js",
-        "build": "node build/build.js"
-  }
+"scripts": {
+    "dev": "node build/dev-server.js",
+    "start": "node build/dev-server.js",
+    "build": "node build/build.js"
+}
 ```
 
 当执行 npm run dev 时，执行的是 dev-server.js   
