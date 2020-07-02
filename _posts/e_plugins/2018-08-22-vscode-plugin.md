@@ -10,7 +10,7 @@ TypeScript Importer | Types auto installer | Sort Typescript Imports | Markdown 
 Markdown Preview Github Styling | git-hidtory | Turbo Console Log
 AutoFileName | HTML Snippets | Vue TypeScript Snippets | Vue VSCode Snippets
 Polacode - 代码截图 | SVG Viewer | vscode-pdf | vscode-faker
-CSS Peek | cssrem | Bracket Pair Colorizer | Emoji | vscode-icons
+CSS Peek | cssrem | Bracket Pair Colorizer | Emoji | vscode-icons | any-rule(正则)
 
 
 ## | vscode 删除空行
