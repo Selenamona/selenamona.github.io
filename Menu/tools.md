@@ -55,3 +55,9 @@ title: TOOLS
 [在线音频剪辑器](https://www.weixinsyt.com/)
 [在线工具箱](http://www.ygktool.cnygktool.cn) tool.majh.top
 [分享你我](http://tool.majh.top/)
+
+
+[前端存储](https://juejin.im/post/5ee83f10e51d4578975a7b8a)
+
+
+
