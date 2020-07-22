@@ -2,7 +2,7 @@
 layout: post
 title: Webpack 之 loader 配置详解
 summary:
-categories: Vue
+categories: Utility
 technique: true
 ---
 

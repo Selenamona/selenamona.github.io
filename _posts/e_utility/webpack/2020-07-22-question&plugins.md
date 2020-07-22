@@ -1,0 +1,73 @@
+---
+layout: post
+title: Webpack 之 插件使用以及报错解决
+summary:
+categories: Utility
+technique: true
+---
+
+## | 报错及解决
+
+> 使用 webpack 构建项目时报错：`TypeError: Cannot read property 'properties' of undefined`
+
+**_注意_**： webpack4.20.0 以上版本要使用 3.1.1 版本的 webpack-cli
+
+**_解决办法_**：`npm i webpack-cli@3.1.2`
+
+> `vue-loader was used without the corresponding plugin. Make sure to include VueLoaderPlugin in your webpack config.`
+
+**_注意_**：v15 版的 vue-loader 配置需要加 VueLoaderPlugin
+
+**_解决办法_**：
+
+1. 把 vue-loader 回到 v14 版本
+
+```javascript
+npm uninstall vue-loader
+npm install vue-leader@14.2.2
+```
+
+2. 修改 webpack.config.js
+
+```javascript
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+plugins: [new VueLoaderPlugin()];
+```
+
+> `[Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.`
+
+vue 有两种形式的代码 compiler（模板）模式和 runtime 模式（运行时），vue 模块的 package.json 的 main 字段默认为 runtime 模式， 指向了"dist/vue.runtime.common.js"位置。
+
+**_解决办法_**：
+
+1. 修改初始化 Vue 的方法
+
+```javascript
+// compiler
+new Vue({
+  el: '#app',
+  router: router,
+  store: store,
+  template: '<App/>',
+  components: { App },
+});
+
+//runtime
+new Vue({
+  router,
+  store,
+  render: (h) => h(App),
+}).$mount('#app');
+```
+
+2. 修改配置
+
+```javascript
+// import Vue from ‘vue’ 这行代码被解析为 import Vue from ‘vue/dist/vue.esm.js’
+// 直接指定了文件的位置，没有使用 main 字段默认的文件位置
+resolve: {
+  alias: {
+    'vue$': 'vue/dist/vue.esm.js',
+  }
+},
+```
