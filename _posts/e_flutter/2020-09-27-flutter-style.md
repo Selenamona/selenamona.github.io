@@ -81,3 +81,18 @@ BoxShadow(
     spreadRadius: -2 // 阴影扩散程度
     )
 ```
+
+## | 文本样式设置
+
+```javascript
+// 去除文字双下划线：TextDecoration.none
+Text(
+"aaa",
+style: TextStyle(decoration: TextDecoration.none),
+)
+
+// 文字添加删除线：
+decoration: TextDecoration.lineThrough,
+decorationColor: Colors.red,
+decorationStyle: TextDecorationStyle.solid
+```
