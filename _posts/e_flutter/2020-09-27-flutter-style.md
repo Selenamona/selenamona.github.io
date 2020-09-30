@@ -6,6 +6,37 @@ categories: Flutter
 technique: true
 ---
 
+## | _Image_
+
+目前 Flutter 的 Image 支持以下图像格式：JPEG，PNG，GIF，动画 GIF，WebP，动画 WebP，BMP 和 WBMP。Flutter 中获取图片的方式提供了以下几种：
+
+- Image（） 从 ImageProvider 获取图像
+- Image.asset（） 本资源文件
+- Image.file（） 文件形式
+- Image.memory（）内存中
+- Image.network（）网络中获取
+
+**_设置图片缩放模式_**
+width、height：用于设置图片的宽、高，当不指定宽高时，图片会根据当前父容器的限制，尽可能的显示其原始大小，如果只设置 width、height 的其中一个，那么另一个属性默认会按比例缩放，但可以通过下面介绍的 fit 属性来指定适应规则。
+
+fit：该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在 BoxFit 中定义，它是一个枚举类型，有如下值：
+
+- fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。
+- cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。
+- contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。
+- fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
+- fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
+- none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。
+
+```dart
+new Image.network(
+  imgUrl,
+  width: 100.0,
+  height: 100.0,
+  fit: BoxFit.fitHeight
+);
+```
+
 ## | color
 
 Flutter 中颜色设置的方式有很多种，其中最常用的有下列几种：
@@ -95,4 +126,89 @@ style: TextStyle(decoration: TextDecoration.none),
 decoration: TextDecoration.lineThrough,
 decorationColor: Colors.red,
 decorationStyle: TextDecorationStyle.solid
+```
+
+## | 容器/设置边距
+
+1. EdgeInsets.fromLTRB(double left, double top, double right, double bottom)：分别指定四个方向的填充。 `EdgeInsets.fromLTRB(20.0,.0,20.0,20.0)`
+2. EdgeInsets.all(double value) : 所有方向均使用相同数值的填充。`EdgeInsets.all(16.0)`
+3. EdgeInsets.only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。`EdgeInsets.only(top: 10.0, bottom: 10)`
+4. EdgeInsets.symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical 指 top 和 bottom，horizontal 指 left 和 right。`EdgeInsets.symmetric(vertical: 8.0)`
+
+**_尺寸限制_**
+
+**_ConstrainedBox_** 用于对子组件添加额外的约束。例如，如果你想让子组件的最小高度是 80 像素，你可以使用 const BoxConstraints(minHeight: 80.0)作为子组件的约束。
+
+```javascript
+ConstrainedBox(
+  constraints: BoxConstraints(
+    minWidth: double.infinity, // 宽度尽可能大
+    minHeight: 50.0 // 最小高度为50像素
+  ),
+  child: Container(
+      height: 5.0, // 即使将Container的高度设置为5像素，但是最终却是50像素，这正是ConstrainedBox的最小高度限制生效了
+      child: redBox
+  ),
+)
+```
+
+**_BoxConstraints_** 用于设置限制条件，它的定义如下：
+
+```dart
+const BoxConstraints({
+  this.minWidth = 0.0, //最小宽度
+  this.maxWidth = double.infinity, //最大宽度
+  this.minHeight = 0.0, //最小高度
+  this.maxHeight = double.infinity //最大高度
+})
+```
+
+BoxConstraints 还定义了一些便捷的构造函数，用于快速生成特定限制规则的 BoxConstraints，如 BoxConstraints.tight(Size size)它可以生成给定大小的限制。
+
+**_SizedBox_** 用于给子元素指定固定的宽高
+
+```dart
+SizedBox((width: 80.0), (height: 80.0), (child: redBox));
+// 实际上SizedBox只是ConstrainedBox的一个定制，上面代码等价于：
+ConstrainedBox(
+  constraints: BoxConstraints.tightFor(width: 80.0,height: 80.0),
+  child: redBox,
+)
+// 也等价于：
+BoxConstraints(minHeight: 80.0,maxHeight: 80.0,minWidth: 80.0,maxWidth: 80.0)
+```
+
+**_多重限制_**
+
+多重限制时，对于 minWidth 和 minHeight 来说，是取父子中相应数值较大的。实际上，只有这样才能保证父限制与子限制不冲突。
+
+```javascript
+// 最终显示效果是宽90，高60
+ConstrainedBox(
+    constraints: BoxConstraints(minWidth: 60.0, minHeight: 60.0), //父
+    child: ConstrainedBox(
+      constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),//子
+      child: redBox,
+    )
+)
+```
+
+## | 线性布局（Row/Colum）
+
+- textDirection - 文字方向从左往右（TextDirection.ltr）；从右往左（TextDirection.rtl）
+- MainAxisSize - 在主轴(水平)方向占用的空间，默认是 MainAxisSize.max，表示尽可能多的占用水平方向的空间，此时无论子 widgets 实际占用多少水平空间，Row 的宽度始终等于水平方向的最大宽度；而 MainAxisSize.min 表示尽可能少的占用水平空间，当子组件没有占满水平剩余空间，则 Row 的实际宽度等于所有子组件占用的的水平空间
+- mainAxisAlignment - MainAxisAlignment.start / MainAxisAlignment.end / MainAxisAlignment.center
+- verticalDirection - 纵轴（垂直）的对齐方向，默认是 VerticalDirection.down，表示从上到下。（VerticalDirection.up 表示从下到上）
+- CrossAxisAlignment - 纵轴方向的对齐方式 CrossAxisAlignment.start / CrossAxisAlignment.end / CrossAxisAlignment.center
+- children - 子组件数组
+
+```dart
+Row({
+  TextDirection textDirection,
+  MainAxisSize mainAxisSize = MainAxisSize.max,
+  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+  VerticalDirection verticalDirection = VerticalDirection.down,
+  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+  List<Widget> children = const <Widget>[],
+})
 ```
