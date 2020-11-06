@@ -6,6 +6,22 @@ categories: Flutter
 technique: true
 ---
 
+# | 语法
+
+## | [基础 Widgets](https://flutterchina.club/widgets/basics/)
+
+**_scaffold（脚手架）_**
+
+实现基本的 Material Design 可视化布局结构。Scaffold 类提供了很多的 Material 组件。
+
+- AppBar-通常显示在使用 appBar 属性的应用顶部。
+- BottomNavigationBar-通常使用 bottomNavigationBar 属性在应用程序底部显示，此功能向图中所示一样，无法做定制，- 只能以图片和文本形式存在。
+- BottomAppBar-通常使用 bottomNavigationBar 属性显示在应用程序的底部，用来构建定制化的底部导航栏或者布局。
+- FloatingActionButton-圆形按钮，通常使用 floatingActionButton 属性显示在应用程序的右下角。
+- SnackBar-通常显示在应用程序底部附近的临时通知
+
+[中文文档](https://flutterchina.club/get-started/codelab/)
+
 # | Flutter Widget 框架概述
 
 Flutter Widget 采用现代响应式框架构建，这是从 React 中获得的灵感，中心思想是用 widget 构建你的 UI。
@@ -35,7 +51,7 @@ StatefulWidget：有状态，创建时需要指定一个 State ，在需要更�
 - 状态被不同 widget 共享，由他们共同的父 widget 管理
 
 （3）Widget 支持库
-flutter 提供了一套丰富、强大的基础 widget ，在此基础上还提供了 Android 默认风格库： Material 与 IOS 风格库：Cupertino。
+flutter 提供了一套丰富、强大的基础 widget ，在此基础上还提供了 Android 默认风格库： Material 与 IOS 风格库：[Cupertino](https://flutterchina.club/widgets/cupertino/)。
 
 （4）基础 Widget
 

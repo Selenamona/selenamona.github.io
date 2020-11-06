@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flutter terminals command
+title: Flutter 安装/运行/打包
 summary: Useful Flutter Terminals Command in VSCode
 categories: Flutter
 technique: true
@@ -164,20 +164,3 @@ Dart | Flutter | Bracket Pair Colorizer | Flutter Widget Snippets | Awesome Flut
 
 [VSCode 下 Flutter 常用终端命令行](https://www.cnblogs.com/lxlx1798/p/11049922.html)
 
-# | 语法
-
-## | [基础 Widgets](https://flutterchina.club/widgets/basics/)
-
-**_scaffold（脚手架）_**
-
-实现基本的 Material Design 可视化布局结构。Scaffold 类提供了很多的 Material 组件。
-
-- AppBar-通常显示在使用 appBar 属性的应用顶部。
-- BottomNavigationBar-通常使用 bottomNavigationBar 属性在应用程序底部显示，此功能向图中所示一样，无法做定制，- 只能以图片和文本形式存在。
-- BottomAppBar-通常使用 bottomNavigationBar 属性显示在应用程序的底部，用来构建定制化的底部导航栏或者布局。
-- FloatingActionButton-圆形按钮，通常使用 floatingActionButton 属性显示在应用程序的右下角。
-- SnackBar-通常显示在应用程序底部附近的临时通知
-
-
-
-[中文文档](https://flutterchina.club/get-started/codelab/)
