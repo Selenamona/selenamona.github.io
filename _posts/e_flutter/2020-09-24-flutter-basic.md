@@ -97,14 +97,14 @@ state 中包含两个常用属性：widget 和 context。widget 属性表示当�
 ```javascript
 
 new Row(
-start, // 将子控件放在主轴的开始位置
-end, // 将子控件放在主轴的结束位置
-center, // 将子控件放在主轴的中间位置
-spaceBetween, // 将主轴空白位置进行均分，排列子元素，手尾没有空隙
-spaceAround, // 将主轴空白区域均分，使中间各个子控件间距相等，首尾子控件间距为中间子控件间距的一半
-spaceEvenly, //将主轴空白区域均分，使各个子控件间距相等
-
 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// mainAxisAlignment：
+// start, // 将子控件放在主轴的开始位置
+// end, // 将子控件放在主轴的结束位置
+// center, // 将子控件放在主轴的中间位置
+// spaceBetween, // 将主轴空白位置进行均分，排列子元素，手尾没有空隙
+// spaceAround, // 将主轴空白区域均分，使中间各个子控件间距相等，首尾子控件间距为中间子控件间距的一半
+// spaceEvenly, //将主轴空白区域均分，使各个子控件间距相等
 mainAxisSize: MainAxisSize.max,
 // 交叉轴的布局方式，对于column来说就是水平方向的布局方式
 crossAxisAlignment: CrossAxisAlignment.center,

@@ -193,6 +193,20 @@ ConstrainedBox(
 )
 ```
 
+**_设置圆角_**
+
+```javascript
+// ClipRRect例子(可自定义圆角):
+new ClipRRect(
+  borderRadius: BorderRadius.circular(50),
+  child: Container()
+)
+// ClipOval例子(默认全圆角):
+new ClipOval(
+  child: Container()
+)
+```
+
 ## | 线性布局（Row/Colum）
 
 - textDirection - 文字方向从左往右（TextDirection.ltr）；从右往左（TextDirection.rtl）

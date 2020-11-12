@@ -25,7 +25,7 @@ title: Websites
 
 #### Team
 
-[TAOBAO FED](http://taobaofed.org/) | [alloyteam](http://alloyteam.com/) | [IMWeb](http://imweb.io/) | [souche](http://f2e.souche.com/blog/) | [75team](https://75team.com/) | [BAIDU FEX](http://fex.baidu.com/) | [新浪UED](http://ued.sina.com.cn/?cat=6) | [TENCENT CDC](http://cdc.tencent.com/category/books/#search-result) | [UCDChina](http://ucdchina.com/)  
+ [alloyteam](http://alloyteam.com/) | [IMWeb](http://imweb.io/)  | [75team](https://75team.com/) | [BAIDU FEX](http://fex.baidu.com/) |  [TENCENT CDC](http://cdc.tencent.com/category/books/#search-result) | [UCDChina](http://ucdchina.com/)  
 
 #### Nav 
 
