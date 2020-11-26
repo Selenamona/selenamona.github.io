@@ -33,7 +33,11 @@ new Image.network(
   imgUrl,
   width: 100.0,
   height: 100.0,
-  fit: BoxFit.fitHeight
+  fit: BoxFit.fitHeight,
+  // color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，color指定混合色，而colorBlendMode指定混合模式，
+  color: Colors.blue,
+  colorBlendMode: BlendMode.difference,
+  repeat: ImageRepeat.repeatY, // 图片的重复规则
 );
 ```
 
@@ -116,16 +120,76 @@ BoxShadow(
 ## | 文本样式设置
 
 ```javascript
-// 去除文字双下划线：TextDecoration.none
+// maxLines、overflow：指定文本显示的最大行数，超出显示省略号
+Text("Hello world! I'm Jack. "*4, // 字符串重复四次
+  maxLines: 1,
+  overflow: TextOverflow.ellipsis,
+);
+
 Text(
 "aaa",
-style: TextStyle(decoration: TextDecoration.none),
+textAlign: TextAlign.left, // 文本对齐方式
+textScaleFactor: 1.5, // 代表文本相对于当前字体大小的缩放因子，相对于去设置文本的样式style属性的fontSize，它是调整字体大小的一个快捷方式。该属性的默认值可以通过MediaQueryData.textScaleFactor获得，如果没有MediaQuery，那么会默认值将为1.0。
+// TextStyle用于指定文本显示的样式如颜色、字体、粗细、背景等
+style: TextStyle(
+  color: Colors.blue,
+  fontSize: 18.0, // 精确指定字体大小
+  height: 1.2, // 该属性用于指定行高，但它并不是一个绝对值，而是一个因子，具体的行高等于fontSize*height
+  fontFamily: "Courier",
+  background: new Paint()..color=Colors.yellow,
+  decoration:TextDecoration.underline,
+  decorationStyle: TextDecorationStyle.dashed),
 )
-
+// 去除文字双下划线：
+decoration: TextDecoration.none
 // 文字添加删除线：
 decoration: TextDecoration.lineThrough,
 decorationColor: Colors.red,
 decorationStyle: TextDecorationStyle.solid
+```
+
+```javascript
+// 通过TextSpan实现了一个基础文本片段和一个链接片段拼接
+Text.rich(TextSpan(
+  children: [
+    TextSpan(
+      text: "Home: "
+    ),
+    TextSpan(
+      text: "https://flutterchina.club",
+      style: TextStyle(
+        color: Colors.blue
+      ),
+      recognizer: _tapRecognizer // 点击事件
+    ),
+  ]
+))
+```
+
+在 Widget 树中，文本的样式默认是可以被继承的（子类文本类组件未指定具体样式时可以使用 Widget 树中父级设置的默认样式），因此，如果在 Widget 树的某一个节点处设置一个默认的文本样式，那么该节点的子树中所有文本都会默认使用这个样式，而 DefaultTextStyle 正是用于设置默认文本样式的。
+
+```dart
+DefaultTextStyle(
+  //1.设置文本默认样式
+  style: TextStyle(
+    color:Colors.red,
+    fontSize: 20.0,
+  ),
+  textAlign: TextAlign.start,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Text("hello world"),
+      Text("I am Jack"),
+      Text("I am Jack",
+        style: TextStyle(
+          inherit: false, // 2.不继承默认样式
+          color: Colors.grey
+        ),
+      ),
+    ],
+  ),
+);
 ```
 
 ## | 容器/设置边距
@@ -207,6 +271,62 @@ new ClipOval(
 )
 ```
 
+**_容器类组件_**
+
+Padding：可以给其子节点添加填充（留白），和边距效果类似。如下设置 text 和 image 的间距
+
+```dart
+Container(
+  width: 60,
+  margin: EdgeInsets.only(bottom: 20),
+  child: new Column(children: <Widget>[
+    new Image.asset(iconList[i]['icon'],
+        width: 30, height: 30, fit: BoxFit.fitWidth),
+    Padding(
+        padding: EdgeInsets.only(top: 5),
+        child: Text(iconList[i]['title']))
+  ]))
+```
+
+**_Flexible 和 Expanded_**
+
+Flexible 是一个控制 Row、Column、Flex 等子组件如何布局的组件。但不强制子组件填充可用空间。
+
+Expanded 组件可以使 Row、Column、Flex 等子组件在其主轴方向上展开并填充可用空间
+Expanded 组件必须用在 Row、Column、Flex 内，并且从 Expanded 到封装它的 Row、Column、Flex 的路径必须只包括 StatelessWidgets 或 StatefulWidgets 组件(不能是其他类型的组件，像 RenderObjectWidget，它是渲染对象，不再改变尺寸了，因此 Expanded 不能放进 RenderObjectWidget)。
+
+```dart
+Row(
+  children: <Widget>[
+    Container( /// 此组件在主轴方向占据48.0逻辑像素
+      width: 48.0
+    ),
+    Expanded(
+      child: Container() /// 此组件会填满Row在主轴方向的剩余空间，撑开Row
+    )
+  ]
+）
+```
+
+**_GridView_**
+
+```javascript
+GridView(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 3, //横轴三个子 widget
+    childAspectRatio: 1.0 //宽高比为 1 时，子 widget
+  ),
+  children:<Widget>[
+    Icon(Icons.ac_unit),
+    Icon(Icons.airport_shuttle),
+    Icon(Icons.all_inclusive),
+    Icon(Icons.beach_access),
+    Icon(Icons.cake),
+    Icon(Icons.free_breakfast)
+  ]
+);
+```
+
 ## | 线性布局（Row/Colum）
 
 - textDirection - 文字方向从左往右（TextDirection.ltr）；从右往左（TextDirection.rtl）
@@ -226,3 +346,5 @@ Row({
   List<Widget> children = const <Widget>[],
 })
 ```
+
+[flutter 文档参考](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
