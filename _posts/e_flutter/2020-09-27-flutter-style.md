@@ -199,63 +199,6 @@ DefaultTextStyle(
 3. EdgeInsets.only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。`EdgeInsets.only(top: 10.0, bottom: 10)`
 4. EdgeInsets.symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical 指 top 和 bottom，horizontal 指 left 和 right。`EdgeInsets.symmetric(vertical: 8.0)`
 
-**_尺寸限制_**
-
-**_ConstrainedBox_** 用于对子组件添加额外的约束。例如，如果你想让子组件的最小高度是 80 像素，你可以使用 const BoxConstraints(minHeight: 80.0)作为子组件的约束。
-
-```javascript
-ConstrainedBox(
-  constraints: BoxConstraints(
-    minWidth: double.infinity, // 宽度尽可能大
-    minHeight: 50.0 // 最小高度为50像素
-  ),
-  child: Container(
-      height: 5.0, // 即使将Container的高度设置为5像素，但是最终却是50像素，这正是ConstrainedBox的最小高度限制生效了
-      child: redBox
-  ),
-)
-```
-
-**_BoxConstraints_** 用于设置限制条件，它的定义如下：
-
-```dart
-const BoxConstraints({
-  this.minWidth = 0.0, //最小宽度
-  this.maxWidth = double.infinity, //最大宽度
-  this.minHeight = 0.0, //最小高度
-  this.maxHeight = double.infinity //最大高度
-})
-```
-
-BoxConstraints 还定义了一些便捷的构造函数，用于快速生成特定限制规则的 BoxConstraints，如 BoxConstraints.tight(Size size)它可以生成给定大小的限制。
-
-**_SizedBox_** 用于给子元素指定固定的宽高
-
-```dart
-SizedBox((width: 80.0), (height: 80.0), (child: redBox));
-// 实际上SizedBox只是ConstrainedBox的一个定制，上面代码等价于：
-ConstrainedBox(
-  constraints: BoxConstraints.tightFor(width: 80.0,height: 80.0),
-  child: redBox,
-)
-// 也等价于：
-BoxConstraints(minHeight: 80.0,maxHeight: 80.0,minWidth: 80.0,maxWidth: 80.0)
-```
-
-**_多重限制_**
-
-多重限制时，对于 minWidth 和 minHeight 来说，是取父子中相应数值较大的。实际上，只有这样才能保证父限制与子限制不冲突。
-
-```javascript
-// 最终显示效果是宽90，高60
-ConstrainedBox(
-    constraints: BoxConstraints(minWidth: 60.0, minHeight: 60.0), //父
-    child: ConstrainedBox(
-      constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),//子
-      child: redBox,
-    )
-)
-```
 
 **_设置圆角_**
 
@@ -326,25 +269,6 @@ GridView(
   ]
 );
 ```
-
-## | 线性布局（Row/Colum）
-
-- textDirection - 文字方向从左往右（TextDirection.ltr）；从右往左（TextDirection.rtl）
-- MainAxisSize - 在主轴(水平)方向占用的空间，默认是 MainAxisSize.max，表示尽可能多的占用水平方向的空间，此时无论子 widgets 实际占用多少水平空间，Row 的宽度始终等于水平方向的最大宽度；而 MainAxisSize.min 表示尽可能少的占用水平空间，当子组件没有占满水平剩余空间，则 Row 的实际宽度等于所有子组件占用的的水平空间
-- mainAxisAlignment - MainAxisAlignment.start / MainAxisAlignment.end / MainAxisAlignment.center
-- verticalDirection - 纵轴（垂直）的对齐方向，默认是 VerticalDirection.down，表示从上到下。（VerticalDirection.up 表示从下到上）
-- CrossAxisAlignment - 纵轴方向的对齐方式 CrossAxisAlignment.start / CrossAxisAlignment.end / CrossAxisAlignment.center
-- children - 子组件数组
-
-```dart
-Row({
-  TextDirection textDirection,
-  MainAxisSize mainAxisSize = MainAxisSize.max,
-  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-  VerticalDirection verticalDirection = VerticalDirection.down,
-  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-  List<Widget> children = const <Widget>[],
-})
-```
-
+ 
+ 
 [flutter 文档参考](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
