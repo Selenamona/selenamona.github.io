@@ -92,11 +92,13 @@ state 中包含两个常用属性：widget 和 context。widget 属性表示当�
 2. Multi-child layout widgets；父级 widget 中能包含多个子级 widget
    主要有： Row、Column 等等
 
- 
-
 ## | 坑
 
 1. Flutter 中 Row 中不能直接使用 textfield 控件。需添加 expanded
+
+2. 报错：` RangeError (index): Invalid value: Valid value range is empty: 0`
+
+解决：命令行执行 `$ flutter clean`
 
 [实战文档参考 book.flutterchina.club/](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
 
