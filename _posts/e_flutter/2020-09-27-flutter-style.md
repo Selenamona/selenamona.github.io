@@ -231,44 +231,7 @@ Container(
   ]))
 ```
 
-**_Flexible 和 Expanded_**
-
-Flexible 是一个控制 Row、Column、Flex 等子组件如何布局的组件。但不强制子组件填充可用空间。
-
-Expanded 组件可以使 Row、Column、Flex 等子组件在其主轴方向上展开并填充可用空间
-Expanded 组件必须用在 Row、Column、Flex 内，并且从 Expanded 到封装它的 Row、Column、Flex 的路径必须只包括 StatelessWidgets 或 StatefulWidgets 组件(不能是其他类型的组件，像 RenderObjectWidget，它是渲染对象，不再改变尺寸了，因此 Expanded 不能放进 RenderObjectWidget)。
-
-```dart
-Row(
-  children: <Widget>[
-    Container( /// 此组件在主轴方向占据48.0逻辑像素
-      width: 48.0
-    ),
-    Expanded(
-      child: Container() /// 此组件会填满Row在主轴方向的剩余空间，撑开Row
-    )
-  ]
-）
-```
-
-**_GridView_**
-
-```javascript
-GridView(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 3, //横轴三个子 widget
-    childAspectRatio: 1.0 //宽高比为 1 时，子 widget
-  ),
-  children:<Widget>[
-    Icon(Icons.ac_unit),
-    Icon(Icons.airport_shuttle),
-    Icon(Icons.all_inclusive),
-    Icon(Icons.beach_access),
-    Icon(Icons.cake),
-    Icon(Icons.free_breakfast)
-  ]
-);
-```
+ 
  
  
 [flutter 文档参考](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
