@@ -400,6 +400,7 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html', //生成的文件名
       template: 'index.html',
       inject: true,
+      favicon: path.resolve('favicon.ico'), // 配置浏览器顶部icon
     }),
     new FriendlyErrorsPlugin(), //友好的错误提示
   ],
