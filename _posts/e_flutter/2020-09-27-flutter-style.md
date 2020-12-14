@@ -134,6 +134,7 @@ textScaleFactor: 1.5, // 代表文本相对于当前字体大小的缩放因子�
 style: TextStyle(
   color: Colors.blue,
   fontSize: 18.0, // 精确指定字体大小
+  fontWeight: FontWeight.bold,
   height: 1.2, // 该属性用于指定行高，但它并不是一个绝对值，而是一个因子，具体的行高等于fontSize*height
   fontFamily: "Courier",
   background: new Paint()..color=Colors.yellow,
@@ -199,8 +200,7 @@ DefaultTextStyle(
 3. EdgeInsets.only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。`EdgeInsets.only(top: 10.0, bottom: 10)`
 4. EdgeInsets.symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical 指 top 和 bottom，horizontal 指 left 和 right。`EdgeInsets.symmetric(vertical: 8.0)`
 
-
-**_设置圆角_**
+**_设置圆角/圆形_**
 
 ```javascript
 // ClipRRect例子(可自定义圆角):
@@ -213,6 +213,8 @@ new ClipOval(
   child: Container()
 )
 ```
+
+圆形：CircleAvatar
 
 **_容器类组件_**
 
@@ -231,7 +233,4 @@ Container(
   ]))
 ```
 
- 
- 
- 
 [flutter 文档参考](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
