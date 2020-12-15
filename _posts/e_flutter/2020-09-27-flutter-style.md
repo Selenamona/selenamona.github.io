@@ -205,32 +205,30 @@ DefaultTextStyle(
 ```javascript
 // ClipRRect例子(可自定义圆角):
 new ClipRRect(
-  borderRadius: BorderRadius.circular(50),
-  child: Container()
+  borderRadius: BorderRadius.circular(50),
+  child: Container()
 )
 // ClipOval例子(默认全圆角):
 new ClipOval(
   child: Container()
 )
+
+
+// BorderRadius详解：
+new BorderRadius.all(Radius.circular(4)) // 四个圆角都是半径为4
+new BorderRadius.circular(4), // 四个圆角都是半径为4,和上面的效果是一样的
+new BorderRadius.horizontal( left: Radius.circular(10)), //左边的两个角的半径为10
+new BorderRadius.horizontal(left: Radius.circular(10), right: Radius.circular(4)),//左边的两个角半径为10，右侧两个角半径为4
+new BorderRadius.vertical( top: Radius.circular(6)), //上边两个角半径为6
+new BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(4),
+                      bottomLeft: Radius.circular(6),
+                      bottomRight: Radius.circular(20)
+                     ), //坐上角半径为10，右上角4，左下角为6，右下角为20
+
 ```
 
 圆形：CircleAvatar
-
-**_容器类组件_**
-
-Padding：可以给其子节点添加填充（留白），和边距效果类似。如下设置 text 和 image 的间距
-
-```dart
-Container(
-  width: 60,
-  margin: EdgeInsets.only(bottom: 20),
-  child: new Column(children: <Widget>[
-    new Image.asset(iconList[i]['icon'],
-        width: 30, height: 30, fit: BoxFit.fitWidth),
-    Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: Text(iconList[i]['title']))
-  ]))
-```
 
 [flutter 文档参考](https://book.flutterchina.club/chapter3/flutter_widget_intro.html)
