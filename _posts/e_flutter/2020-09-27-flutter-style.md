@@ -22,11 +22,12 @@ width、height：用于设置图片的宽、高，当不指定宽高时，图片
 fit：该属性用于在图片的显示空间和图片本身大小不同时指定图片的适应模式。适应模式是在 BoxFit 中定义，它是一个枚举类型，有如下值：
 
 - fill：会拉伸填充满显示空间，图片本身长宽比会发生变化，图片会变形。
-- cover：会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。
-- contain：这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。
+- cover：等比拉伸，直到 2 边都填充满，此时一边可能超出范围，图片不会变形。
+- contain：默认值，等比拉伸，直到一边填充满，图片不会变形。
 - fitWidth：图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
 - fitHeight：图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
 - none：图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。
+- scaleDown：当组件比图片小时，图片等比缩小，效果和 contain 一样。
 
 ```dart
 new Image.network(
@@ -34,12 +35,128 @@ new Image.network(
   width: 100.0,
   height: 100.0,
   fit: BoxFit.fitHeight,
-  // color和 colorBlendMode：在图片绘制时可以对每一个像素进行颜色混合处理，color指定混合色，而colorBlendMode指定混合模式，
   color: Colors.blue,
   colorBlendMode: BlendMode.difference,
   repeat: ImageRepeat.repeatY, // 图片的重复规则
+  alignment: Alignment.centerLeft,
 );
 ```
+
+### repeat
+
+> 重复的模式有：
+> repeat：x,y 方向都充满。
+> repeatX：x 方向充满。
+> repeatY：y 方向充满。
+> noRepeat：不重复
+
+### matchTextDirection
+
+- matchTextDirection 设置为 true 时，图片的绘制方向为 TextDirection 设置的方向，其父组件必须为 Directionality：
+
+```javascript
+Directionality(
+    textDirection: TextDirection.rtl,
+    child: Image.asset(
+      'assets/images/logo.png',
+      height: 150,
+      matchTextDirection: true,
+    )),
+```
+
+### filterQuality
+
+表示绘制图像的质量，从高到低为：high->medium->low->none。越高效果越好，越平滑，当然性能损耗越大，默认是 low，如果发现图片有锯齿，可以设置此参数。
+
+### frameBuilder
+
+当加载图片的时候回调 frameBuilder，当此参数为 null 时，此控件将会在图片加载完成后显示，未加载完成时显示空白，尤其在加载网络图片时会更明显。因此此参数可以用于处理图片加载时显示占位图片和加载图片的过渡效果，比如淡入淡出效果
+
+```javascript
+// 淡入淡出效果
+Image.network(
+  'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',
+  frameBuilder: (BuildContext context, Widget child, int frame,
+      bool wasSynchronouslyLoaded) {
+    if (wasSynchronouslyLoaded) {
+      return child;
+    }
+    return AnimatedOpacity(
+      child: child,
+      opacity: frame == null ? 0 : 1,
+      duration: const Duration(seconds: 2),
+      curve: Curves.easeOut,
+    );
+  },
+)
+```
+
+### loadingBuilder
+
+loadingBuilder 参数比 frameBuilder 控制的力度更细，可以获取图片加载的进度，下面的案例显示了加载进度条
+
+```dart
+Image.network(
+    'https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg',
+    loadingBuilder: (BuildContext context, Widget child,
+        ImageChunkEvent loadingProgress) {
+  if (loadingProgress == null) {
+    return child;
+  }
+  return Center(
+    child: CircularProgressIndicator(
+      value: loadingProgress.expectedTotalBytes != null
+          ? loadingProgress.cumulativeBytesLoaded /
+              loadingProgress.expectedTotalBytes
+          : null,
+    ),
+  );
+})
+```
+
+### colorBlendMode
+
+> color 和 colorBlendMode 用于将颜色和图片进行颜色混合，color 指定混合色，而 colorBlendMode 指定混合模式。
+
+colorBlendMode 混合模式：
+
+- clear：清楚源图像和目标图像。
+- color：获取源图像的色相和饱和度以及目标图像的光度。
+- colorBurn：将目标的倒数除以源，然后将结果倒数。
+- colorDodge：将目标除以源的倒数。
+- darken：通过从每个颜色通道中选择最小值来合成源图像和目标图像。
+- difference：从每个通道的较大值中减去较小的值。合成黑色没有效果。合成白色会使另一张图像的颜色反转。
+- dst：仅绘制目标图像。
+- dstATop：将目标图像合成到源图像上，但仅在与源图像重叠的位置合成。
+- dstIn：显示目标图像，但仅显示两个图像重叠的位置。不渲染源图像，仅将其视为蒙版。源的颜色通道将被忽略，只有不透明度才起作用。
+- dstOut：显示目标图像，但仅显示两个图像不重叠的位置。不渲染源图像，仅将其视为蒙版。源的颜色通道将被忽略，只有不透明度才起作用。
+- dstOver：将源图像合成到目标图像下。
+- exclusion：从两个图像的总和中减去两个图像的乘积的两倍。
+- hardLight：调整源图像和目标图像的成分以使其适合源图像之后，将它们相乘。
+- hue：获取源图像的色相，以及目标图像的饱和度和光度。
+- lighten：通过从每个颜色通道中选择最大值来合成源图像和目标图像。
+- luminosity：获取源图像的亮度，以及目标图像的色相和饱和度。
+- modulate：将源图像和目标图像的颜色分量相乘。
+- multiply：将源图像和目标图像的分量相乘，包括 alpha 通道。
+- overlay：调整源图像和目标图像的分量以使其适合目标后，将它们相乘。
+- plus：对源图像和目标图像的组成部分求和。
+- saturation：获取源图像的饱和度以及目标图像的色相和亮度。
+- screen：将源图像和目标图像的分量的逆值相乘，然后对结果求逆。
+- softLight：对于低于 0.5 的源值使用 colorDodge，对于高于 0.5 的源值使用 colorBurn。
+- src：放置目标图像，仅绘制源图像。
+- srcATop：将源图像合成到目标图像上，但仅在与目标图像重叠的位置合成。
+- srcIn：显示源图像，但仅显示两个图像重叠的位置。目标图像未渲染，仅被视为蒙版。目标的颜色通道将被忽略，只有不透明度才起作用。
+- srcOut：显示源图像，但仅显示两个图像不重叠的位置。
+- srcOver：将源图像合成到目标图像上。
+- xor：将按位异或运算符应用于源图像和目标图像。
+
+参考[老孟](http://laomengit.com/guide/widgets/Image.html)
+
+[Flutter Alignment 属性总结和应用(雪碧图)](https://blog.wzdxy.com/2019/09/flutter-alignment/)
+x 值的获取可以总结为一个公式:
+x = d1/d2
+d1 = 初始状态时图片左边界到容器左边界的距离
+d2 = 目标状态时图片的偏移量
 
 ## | color
 
@@ -72,7 +189,8 @@ Color c5 = Colors.red[300];
 颜色后面的中括号是用来设置当前颜色的深浅度，可取的值有 10 种：50、100、200 ... 900，值越大，对应的颜色越深。500 就等同于当前颜色自身。
 注：并不是所有的颜色英文单词都能用，只能使用 Material 中封装了的颜色
 
-Color c4 = Colors.red;
+Color c3 = Colors.red;
+Color c4 = Colors.red.withOpacity(.3),
 Color c5 = Colors.white;
 Color c6 = Colors.red[50];
 Color c6 = Colors.blue[900];
