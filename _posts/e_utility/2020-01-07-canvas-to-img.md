@@ -34,6 +34,10 @@ html2canvas(changeDOM, {
 // github上解决清晰度问题：hidpi-canvas-polyfill-master
 ```
 
+4. 渲染图片：确保事件函数 onload 是在图片加载完成之前绑定上去的
+
+5. 生成的最上层图片不能加 `pointerEvents:none`, 否则在微信中不能长按保存
+
 ## | canvas 绘制 html 实例
 
 ```javascript
@@ -132,7 +136,7 @@ recordImg.onload = () => { // 图片加载异步
 
 ## | 图片下载
 
-PC 端`downloadFileByBase64()`实现点击下载  
+PC 端`downloadFileByBase64()`实现点击下载
 移动端长按保存
 
 ```javascript
@@ -225,7 +229,7 @@ dealWords({
 });
 ```
 
-## | 解决 getImageInfo 无法获取 base64 图片信息
+## | 解决小程序 getImageInfo 无法获取 base64 图片信息
 
 ```javascript
 // 解决 getImageInfo 无法获取 base64 图片信息
