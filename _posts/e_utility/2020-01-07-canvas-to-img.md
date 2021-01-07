@@ -344,51 +344,35 @@ function canvas_text(_paint, _text, _fontSzie, _color, _width, _height) {
 ## | 圆角/虚线
 
 ```javascript
-// 绘制圆角区域
-drawRoundedRect(ctx, 0, 86, 260, 306, 8, true, false);
-function drawRoundedRect(ctx, x, y, width, height, r, fill, stroke) {
+// 绘制圆角矩形
+const drawRadiusRect = (ctx, x, y, width, height, r) => {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(x + r, y);
-  // 上半部分圆角
-  // ctx.arcTo(x + width, y, x + width, y + r, r); // right top
-  // ctx.lineTo(x + width, y + height)
-  // ctx.lineTo(x, y + height)
-  // ctx.lineTo(x, y + r)
-  // ctx.arcTo(x, y, x + r, y, r);
-
-  // 全部圆角
   ctx.arcTo(x + width, y, x + width, y + r, r); // draw right side and bottom right corner
   ctx.arcTo(x + width, y + height, x + width - r, y + height, r); // draw bottom and bottom left corner
   ctx.arcTo(x, y + height, x, y + height - r, r); // draw left and top left corner
   ctx.arcTo(x, y, x + r, y, r);
-
-  if (fill) {
-    ctx.setFillStyle('#FFFFFF');
-    ctx.fill();
-  }
-  if (stroke) {
-    ctx.stroke();
-  }
+  ctx.fillStyle = "rgba(255,255,255,0.6)";
+  ctx.fill();
   ctx.restore();
-}
+};
 
 // 绘制圆角矩形图片
 drawRoundedImg('../../static/common/personcenter.png', ctx, 0, 0, 260, 150, 8);
 // path-图片路径 r-圆角大小
-function drawRoundedImg(path, ctx, x, y, width, height, r) {
+const drawRoundedImg = (path, ctx, x, y, width, height, r) => {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(x + r, y);
   ctx.arcTo(x + width, y, x + width, y + r, r);
-  ctx.lineTo(x + width, height);
-  ctx.lineTo(x, height);
-  ctx.lineTo(x, y + r);
+  ctx.arcTo(x + width, y + height, x + width - r, y + height, r);
+  ctx.arcTo(x, y + height, x, y + height - r, r);
   ctx.arcTo(x, y, x + r, y, r);
   ctx.clip();
   ctx.drawImage(path, x, y, width, height);
   ctx.restore();
-}
+};
 
 // 绘制虚线
 ctx.beginPath();
@@ -398,4 +382,14 @@ ctx.setLineWidth(1);
 ctx.moveTo(10, 301);
 ctx.lineTo(249, 301);
 ctx.stroke();
+
+// 绘制圆型图片
+const drawCircleImg = (img, ctx, x, y, width, height) => {
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(width / 2 + x, height / 2 + y, width / 2, 0, Math.PI * 2, false);
+  ctx.clip();
+  ctx.drawImage(img, x, y, width, height);
+  ctx.restore();
+};
 ```
