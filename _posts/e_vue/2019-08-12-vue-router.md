@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vue 路由
-summary:  
+summary:
 categories: Vue
 technique: true
 ---
@@ -16,9 +16,9 @@ module.exports = file => require('@/yixin/' + file + '.vue').default
 module.exports = file => import('@/yixin' + file + '.vue')
 // router -> index.js
 import Vue from 'vue'
-import Router from 'vue-router' 
+import Router from 'vue-router'
 const _import = require('./_import_' + process.env.NODE_ENV)
-Vue.use(Router) 
+Vue.use(Router)
 export default new Router({
   routes: [
     {
@@ -58,9 +58,11 @@ this.$router.push({
     path: '/pageTwo/:id',
     name: 'pageTwo',
     component: pageTwo
-} 
+}
 // 2.页面跳转
 this.$router.push({ path: 'pageTwo/name' })
 // 3.获取
 $route.params.id
 ```
+
+## | 返回上一页

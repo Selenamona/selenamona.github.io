@@ -27,5 +27,7 @@ technique: true
   style="width: 100%;"
   value-key="id"
   @change="$forceUpdate()"
->
+/>
+// input 反显后无法删除修改
+// v-model 使用data函数里双向数据绑定的变量，不要使用类似this.rules.a这样的变量
 ```
