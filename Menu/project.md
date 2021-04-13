@@ -3,7 +3,20 @@ layout: post
 title: Project
 ---
 
- 
+
+## | 解析url
+
+```javascript
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  var r = window.location.hash.split("?")[1].match(reg);
+  if (r != null) return unescape(r[2]);
+  return null;
+}
+getQueryString("idNo")
+```
+
+
 ## | 遇到的问题
 
 **页面空白原因**
@@ -11,7 +24,7 @@ title: Project
 - ES6 兼容问题，安装插件 `babel-polyfill": "^6.26.0`
 - vue-cli config 中文件不转译 ES6
 - 外部引入 vux，样式影响
-- 代码报错 
+- 代码报错
 
 **token 获取**
 
@@ -30,14 +43,14 @@ title: Project
 
 ```html
 <span ref="copy_el"><span id="adminUrl">1111</span></span>
-<button 
-    class="btnCopy" 
-    data-clipboard-action="copy" 
+<button
+    class="btnCopy"
+    data-clipboard-action="copy"
     data-clipboard-target="#adminUrl"
 >复制</button>
 ```
 ```javascript
-import Clipboard from "clipboard"   
+import Clipboard from "clipboard"
 let clipboard = new Clipboard('.btnCopy');
 clipboard.on('success', (e) => {  // 复制成功
     e.clearSelection();  // 清除选中样式（蓝色）
@@ -75,13 +88,13 @@ codeIpt(){
 getCode(){
     let timer = setInterval(() => {
         this.second = this.second - 1;
-        if(this.second === 0) { 
+        if(this.second === 0) {
             this.second = 59;
             clearInterval(timer);
         }
     }, 1000)
 
-    // 调用获取验证码的接口 
+    // 调用获取验证码的接口
 }
 ```
 
@@ -111,11 +124,11 @@ getCode(){
             width: 200%;
             height: 100%;
             background: transparent;
-            left: -100%; 
+            left: -100%;
             top: 0;
             text-indent: -999em;
         }
-    } 
+    }
 }
 ```
 
@@ -125,13 +138,13 @@ getCode(){
 - 输入框失焦事件与按钮点击事件冲突
 
     iPhone onclick事件有大约半秒的延迟，这是因为 iOS 系统需要等待一段时间来判断用户是点击还是拖动，所以会有失焦与点击事件的冲突。
-    
+
     问题描述：
     给一个输入框设置失焦事件之后，失焦事件总是优先其它事件先触发，导致输入完成之后点击提交按钮无效。
-    
+
     拓展： ①mousedown：在用户按下了任意鼠标按钮时触发。不能通过键盘触发这个事件。
            ②mouseup：在用户释放鼠标按钮时触发。不能通过键盘触发这个事件。
-    
+
     解决方案：
     方法1、通过给失焦事件设置延迟触发。
     方法2、将按钮的点击（click）事件改为按下（mousedown）事件
@@ -155,4 +168,3 @@ getCode(){
 
 
 
- 
