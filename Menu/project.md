@@ -3,6 +3,9 @@ layout: post
 title: Project
 ---
 
+## | flex
+
+input 设置 flex为1 失效：由于 input 默认存在最小宽度
 
 ## | 解析url
 
