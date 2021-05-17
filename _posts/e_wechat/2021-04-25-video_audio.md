@@ -34,10 +34,6 @@ this.recorderManager.onStop(res => {
   })
   // wxfile://tmp_bb68f0449d3ff39733cb45c3f1d0b724.m4a
 });
-this.recorderManager.onFrameRecorded(res => {
-  const { frameBuffer } = res;
-  console.log("frameBuffer.byteLength", frameBuffer.byteLength);
-});
 
 // 开始录音
 startVoice() {
