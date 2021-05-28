@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 小程序音/视频
+title: 小程序音/视频-录制/播放/拍照/录音
 summary:
 categories: WX
 technique: true

@@ -8,4 +8,5 @@ technique: true
 
 代码补全：
 
-minapp | wechat-snippet
+minapp | wechat-snippet | 小程序开发助手
+wxml

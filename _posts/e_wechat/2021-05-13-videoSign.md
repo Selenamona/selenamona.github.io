@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 小程序图片处理&pdf预览
+title: 小程序图片处理&pdf预览&文本转语音播放
 summary:
 categories: WX
 technique: true
