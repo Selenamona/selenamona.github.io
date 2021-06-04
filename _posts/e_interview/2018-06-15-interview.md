@@ -21,12 +21,12 @@ var getName = function () { alert (4);};
 function getName() { alert (5);}
 
 //请写出以下输出结果：
-Foo.getName(); 
-getName(); 
-Foo().getName(); 
-getName(); 
-new Foo.getName(); 
-new Foo().getName(); 
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
 new new Foo().getName(); 1
 ```
 
@@ -210,6 +210,22 @@ function unique(a) {
   return Array.from(new Set(a));
 }
 ```
+解析：
+Array.from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组。
+Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
+```javascript
+let arr = [12,12,45,97,9797,564,134,45642]
+let set = new Set(arr)   {12,45,97,9797,564,134,4562}  //去重
+console.log(Array.from(set))  // [ 12, 45, 97, 9797, 564, 134, 45642 ]
+```
+
+Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组
+
+```javascript
+let arr = [12,45,97,9797,564,134,45642]
+let set = new Set(arr)
+console.log(Array.from(set, item => item + 1)) // [ 13, 46, 98, 9798, 565, 135, 45643 ]
+```
 
 ### 闭包
 
@@ -258,9 +274,7 @@ console.log(x);
 ```
 
 
-
 [FE](https://github.com/qiu-deqing/FE-interview)
-
 
 [一不小心就做错的JS闭包面试题](https://www.jb51.net/article/75450.htm)
 
