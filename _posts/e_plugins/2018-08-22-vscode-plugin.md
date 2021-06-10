@@ -6,11 +6,12 @@ categories: Plugins
 technique: true
 ---
 
-TypeScript Importer | Types auto installer | Sort Typescript Imports | Markdown PDF 
+TypeScript Importer | Types auto installer | Sort Typescript Imports | Markdown PDF
 Markdown Preview Github Styling | git-hidtory | Turbo Console Log
 AutoFileName | HTML Snippets | Vue TypeScript Snippets | Vue VSCode Snippets
 Polacode - 代码截图 | SVG Viewer | vscode-pdf | vscode-faker
 CSS Peek | cssrem | Bracket Pair Colorizer | Emoji | vscode-icons | any-rule(正则)
+Auto Close Tag |  Auto Rename Tag | Bracket Pair Colorizer
 
 
 ## | vscode 删除空行
