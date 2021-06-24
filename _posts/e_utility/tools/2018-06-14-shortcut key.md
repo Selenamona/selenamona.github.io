@@ -2,7 +2,7 @@
 layout:     post
 title:      快捷键整理 shortcut
 summary:
-categories: Tools
+categories: Utility
 technique: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      Navigator
+title:      Navigator 属性说明
 summary:
-categories: Mobile
+categories: Utility
 technique: true
 ---
 
@@ -30,7 +30,7 @@ platform | 	运行浏览器的操作系统平台。可能的值有: "Win32", "Li
 plugins	| 列举出浏览器安装的插件
 product	| 返回当前浏览器的产品名称。在任意浏览器下都只返回'Gecko'，此属性只用于兼容的目的。
 productSub	| 有关产品的额外信息。Returns the build number of the current browser (e.g., "20060909").
-userActivation	 |  
+userActivation	 |
 userAgent	| 声明了浏览器用于 HTTP 请求的用户代理头的值。主要是各家浏览器厂商都想要自己的浏览器被其他的兼容，所以都会或多或少的加上一些其他的信息在里面。
 vendor	| 浏览器供应商的名称。
 vendorSub	| 浏览器供应商的版本。

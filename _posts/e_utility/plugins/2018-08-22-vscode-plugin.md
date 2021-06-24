@@ -2,7 +2,7 @@
 layout:     post
 title:      VSCode 插件集合
 summary:
-categories: Plugins
+categories: Utility
 technique: true
 ---
 

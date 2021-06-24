@@ -2,7 +2,7 @@
 layout:     post
 title:      Teamviewer for MAC 检测到商业用途的解决方法
 summary:
-categories: Tools
+categories: Utility
 technique: true
 ---
 

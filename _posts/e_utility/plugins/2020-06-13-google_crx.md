@@ -2,7 +2,7 @@
 layout: post
 title: 谷歌好用的插件/同步谷歌书签
 summary:
-categories: Plugins
+categories: Utility
 technique: true
 ---
 
@@ -42,7 +42,7 @@ technique: true
 
 2. 安装书签同步插件
 
-下载地址：https://pan.baidu.com/s/1Jt9XgoGVKpqZabuAy7Zydg 提取码: k8my 
+下载地址：https://pan.baidu.com/s/1Jt9XgoGVKpqZabuAy7Zydg 提取码: k8my
 
 3. 谷歌扩展程序-加载已解压的扩展程序
 

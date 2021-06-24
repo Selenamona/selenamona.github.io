@@ -1,15 +1,15 @@
 ---
 layout:     post
 title:      移动端浏览器类型以及版本号判断
-summary:     
-categories: Mobile
+summary:
+categories: Utility
 technique: true
 ---
 
 ## | 浏览器以及版本号区分
 
 ```javascript
-var ua = navigator.userAgent.toLowerCase(); 
+var ua = navigator.userAgent.toLowerCase();
 window.browser = {
     versions: function() {
         return {
@@ -23,17 +23,17 @@ window.browser = {
             iPhone: ua.indexOf('iphone') > -1, //是否为iPhone或者QQHD浏览器
             iPad: ua.indexOf('ipad') > -1, //是否iPad
             webApp: ua.indexOf('safari') == -1, // 是否web应用程序，没有头部与底部
-            WeChat: ua.indexOf("micromessenger") > -1,  // 微信  
+            WeChat: ua.indexOf("micromessenger") > -1,  // 微信
             QQBuildIn: ua.match(/\sqq/i) == " qq" && ua.indexOf("micromessenger") < 0, // QQ 内置
-            QQ: ua.indexOf("mqqbrowser") > -1 && ua.indexOf("micromessenger") < 0 && ua.match(/\sqq/i) != " qq",  
-            UC: ua.indexOf("ucbrowser") > -1, // UC 
+            QQ: ua.indexOf("mqqbrowser") > -1 && ua.indexOf("micromessenger") < 0 && ua.match(/\sqq/i) != " qq",
+            UC: ua.indexOf("ucbrowser") > -1, // UC
             Baidu: ua.indexOf("baidubrowser") > -1 || ua.indexOf("baiduboxapp") > -1,  // 百度
             QH360: ua.indexOf("qihoobrowser") > -1 || u.match(/\s360\s/i) == " 360 ",  // 360 极速
-            Safari: ua.indexOf("safari") > -1 && ua.indexOf("iphone") > -1, // IOS Safari 
+            Safari: ua.indexOf("safari") > -1 && ua.indexOf("iphone") > -1, // IOS Safari
         };
     }(),
     versionInfo() { // 判断浏览器，返回浏览器类型以及版本号
-        let res = null; 
+        let res = null;
         let uaVersion = {
             YdtApp: this.versions.android?["", "Android"]:["", "IOS"],
             WeChat: ua.match(/micromessenger\/([\d.]+)/),
@@ -49,11 +49,11 @@ window.browser = {
                 res = { type: key, version: uaVersion[key] && uaVersion[key][1]};
                 break;
             }
-        } 
+        }
         return res || { type: "others", version: "others"};
     },
-} 
-``` 
+}
+```
 
 
 网络流传判断 360 浏览器方法：[兼容性不咋滴]
@@ -71,7 +71,7 @@ var is360 = (function(option, value){
 ```
 
 
-## | 区分 Android IOS 
+## | 区分 Android IOS
 
 ```javascript
 if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
