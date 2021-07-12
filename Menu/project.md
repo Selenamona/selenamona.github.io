@@ -3,22 +3,6 @@ layout: post
 title: Project
 ---
 
-## | flex
-
-input 设置 flex为1 失效：由于 input 默认存在最小宽度
-
-## | 解析url
-
-```javascript
-function getQueryString(name) {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  var r = window.location.hash.split("?")[1].match(reg);
-  if (r != null) return unescape(r[2]);
-  return null;
-}
-getQueryString("idNo")
-```
-
 
 ## | 遇到的问题
 
@@ -39,102 +23,6 @@ getQueryString("idNo")
 
 
 ## | 功能实现
-
-**复制**
-
-安装 "clipboard": "^2.0.4"
-
-```html
-<span ref="copy_el"><span id="adminUrl">1111</span></span>
-<button
-    class="btnCopy"
-    data-clipboard-action="copy"
-    data-clipboard-target="#adminUrl"
->复制</button>
-```
-```javascript
-import Clipboard from "clipboard"
-let clipboard = new Clipboard('.btnCopy');
-clipboard.on('success', (e) => {  // 复制成功
-    e.clearSelection();  // 清除选中样式（蓝色）
-});
-clipboard.on('error', (e) => { // 复制失败
-    // todo...
-});
-```
-
-**输入验证码**
-
-```html
-<!-- 忽略反斜杆 -->
-<div class="code">
-    <ul class="num">
-        <li>{\{code.charAt(0)\}}</li>
-        <li>{\{code.charAt(1)\}}</li>
-        <li>{\{code.charAt(2)\}}</li>
-        <li>{\{code.charAt(3)\}}</li>
-        <li>{\{code.charAt(4)\}}</li>
-        <li>{\{code.charAt(5)\}}</li>
-        <input type="tel" maxlength="6" class="ipt" v-model="code" @input="codeIpt">
-    </ul>
-    <button @click="getCode" v-show="!ifSend">获取验证码</button>
-    <button class="reSendMsg" v-show="ifSend">重新获取({{second}})</button>
-</div>
-```
-
-```javascript
-// 输入验证码
-codeIpt(){
-    this.code = this.code.replace(/[^\d]/, ''); // 只输入数字
-},
-// 获取验证码
-getCode(){
-    let timer = setInterval(() => {
-        this.second = this.second - 1;
-        if(this.second === 0) {
-            this.second = 59;
-            clearInterval(timer);
-        }
-    }, 1000)
-
-    // 调用获取验证码的接口
-}
-```
-
-```less
-.code {
-    margin: .36rem 0 .13rem;
-    display: flex;
-    justify-content: space-between;
-    .num {
-        display: flex;
-        justify-content: space-around;
-        position: relative;
-        li {
-            border: 1px solid #EEEEEE;
-            border-radius: 2px;
-            width: .34rem;
-            height: .34rem;
-            line-height: .34rem;
-            margin-right: .03rem;
-            text-align: center;
-            font-family: PingFangSC-Medium;
-            font-size: .18rem;
-            color: #333333;
-        }
-        .ipt {
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: transparent;
-            left: -100%;
-            top: 0;
-            text-indent: -999em;
-        }
-    }
-}
-```
-
 
 **输入框问题汇总**
 
@@ -164,10 +52,5 @@ getCode(){
         window.scroll(0,0);//失焦后强制让页面归位
     });
     ```
-
-
-日期格式兼容 new Date()
-
-
 
 
